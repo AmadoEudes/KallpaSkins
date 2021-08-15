@@ -12,7 +12,7 @@ class UsersRoutes {
     }
     config() {
         this.router.post('/signup', usersController_1.default.signup);
-        this.router.post('/signin', usersController_1.default.signin);
+        this.router.post('/login', usersController_1.default.login);
         this.router.get('/profile', usersController_1.default.profile);
     }
 }

@@ -2,11 +2,21 @@
 import {Request, response, Response} from 'express';
 
 import pool from '../database'; // db es equivalente a pool del tutorial
-
+import moment, {Moment} from 'moment'
 
 import jwt from "jsonwebtoken";
 import bcrypt from 'bcrypt'
 class UsersController{
+
+  //creamos una constante para crear un token del usurario
+    const CreateToken = (user) =>{
+      let payload = {
+        userId : user.id,
+        created_at: moment().unix(),
+        expire_at : moment().add(1 ,'day').unix()
+      }
+      return jwt.encode(payload, process.env.TOKEN_KEY || "Token-Auth");
+    }
 
     constructor(){
         pool;
@@ -19,7 +29,7 @@ class UsersController{
     private isUpper(letra:string):boolean{
         return letra == letra.toUpperCase();
     }
-    
+
     public passwordCorrect(passwd:string):boolean{
         let numbers:number = 0;
         let LowLetters:number  = 0;
@@ -48,7 +58,6 @@ class UsersController{
         const password_begin : string = req.body.password;
 
         if(true){
-            console.log("verdad")
             req.body.password = bcrypt.hashSync(password_begin, 10);
             await pool.query('INSERT INTO usuarios SET ?', [req.body]);
             res.json(req.body);
@@ -57,21 +66,21 @@ class UsersController{
                 message : "La contraseña debe contener al menos 8 caracteres entre números, mayúsculas y minúsculas"
             });
         }
-            
+
         //
-        
+
     };
 
 
-    public signin(req : Request, res : Response){
-        res.send('SIGNIN')
+    public login(req : Request, res : Response){
+        res.send('LOGIN')
     };
 
     public profile(req : Request, res : Response){
         res.send('PROFILE')
     };
 
-    
+
 }
 
 const  usersController = new UsersController();

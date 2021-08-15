@@ -13,9 +13,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database")); // db es equivalente a pool del tutorial
+const moment_1 = __importDefault(require("moment"));
+const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const bcrypt_1 = __importDefault(require("bcrypt"));
 class UsersController {
     constructor() {
+        //creamos una constante para crear un token del usurario
+        this.CreateToken = (user) => {
+            let payload = {
+                userId: user.id,
+                created_at: moment_1.default().unix(),
+                expire_at: moment_1.default().add(1, 'day').unix()
+            };
+            return jsonwebtoken_1.default.encode(payload, process.env.TOKEN_KEY || "Token-Auth");
+        };
         database_1.default;
     }
     isLower(letter) {
@@ -52,7 +63,6 @@ class UsersController {
         return __awaiter(this, void 0, void 0, function* () {
             const password_begin = req.body.password;
             if (true) {
-                console.log("verdad");
                 req.body.password = bcrypt_1.default.hashSync(password_begin, 10);
                 yield database_1.default.query('INSERT INTO usuarios SET ?', [req.body]);
                 res.json(req.body);
@@ -66,8 +76,8 @@ class UsersController {
         });
     }
     ;
-    signin(req, res) {
-        res.send('SIGNIN');
+    login(req, res) {
+        res.send('LOGIN');
     }
     ;
     profile(req, res) {

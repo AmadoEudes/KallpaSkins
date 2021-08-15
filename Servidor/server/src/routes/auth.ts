@@ -10,9 +10,9 @@ class UsersRoutes{
     }
     config(): void{
         this.router.post('/signup', UsersController.signup);
-        this.router.post('/signin', UsersController.signin);
+        this.router.post('/login', UsersController.login);
         this.router.get('/profile', UsersController.profile);
-        
+
     }
 }
 const usersroutes = new UsersRoutes();
