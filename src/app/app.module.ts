@@ -21,6 +21,7 @@ import { AccessComponent } from './login-checkin/access/access.component';
 import { UsuarioComponent } from './componentes/usuario/usuario.component';
 import { AdministradorComponent } from './componentes/administrador/administrador.component';
 import { RegisterComponent } from './register/register.component';
+import { SpinItemComponent } from './componentes/spin-item/spin-item.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { RegisterComponent } from './register/register.component';
     AccessComponent,
     UsuarioComponent,
     AdministradorComponent,
-    RegisterComponent
+    RegisterComponent,
+    SpinItemComponent
   ],
   imports: [
     BrowserModule,
