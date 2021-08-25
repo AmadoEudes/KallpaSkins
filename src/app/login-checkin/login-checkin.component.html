@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-4 mx-auto mt-5">
+
+            <div class="card" style="text-align: center;">
+                <div class="card-body">
+                    <h3>LOGIN</h3>
+                    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                        <div class="input-group mb-3 mt-3">
+                            <span class="input-group-text" id="basic-addon1">
+                           <i class="far fa-envelope "></i><i class="fas fa-at mx-2"></i> EMAIL</span>
+                            <input type="text" class="form-control" placeholder="Email" formControlName="email" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3 mt-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock mx-2"></i>PASSWORD</span>
+                            <input type="password" class="form-control" placeholder="Password" formControlName="password" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                        <button type="submit" class="btn btn-success btn-lg">INICIAR SESIÓN</button>
+                    </form>
+                    <hr class="hr mb-6">
+                    <a routerLink="/signup" class="nav-link">¿Aún no tienes una cuenta?</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mx-auto mt-5" style="width: 50%;">
+            <h4>KALLPA SKINS STORE</h4>
+
+        </div>
+    </div>
+</div>

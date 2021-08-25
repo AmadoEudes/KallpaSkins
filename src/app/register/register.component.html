@@ -1,0 +1,146 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-4 mx-auto mt-5">
+
+            <div class="card shadow-lg" style="text-align: center; border-radius: 20px;">
+                <div class="card-body">
+                    <h3>REGISTRO</h3>
+                    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+                        <div class="input-group mb-3 mt-3">
+                            <span class="input-group-text" id="basic-addon1">
+                         <i class="far fa-envelope "></i><i class="fas fa-at mx-2"></i> EMAIL</span>
+                            <input type="text" class="form-control" placeholder="Email" formControlName="email" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3 mt-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock mx-2"></i>PASSWORD</span>
+                            <input type="password" class="form-control" placeholder="Password" formControlName="password" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="mb-3" style="text-align: left; font-size: 11px; width: auto;">
+                            <p class="_58mv">Al hacer clic en "Registrarse", aceptas nuestras
+                                <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="color:blue;">
+                                    <a href="#"> condiciones, la Política de datos y la Política de cookies</a> </a>. Es posible que te enviemos notificaciones por SMS, que puedes desactivar cuando quieras.
+                            </p>
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-scrollable">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">CONDICIONES, LA POLÍTICA DE DATOS Y LA POLÍTICA DE COOKIES</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body" style="background-color: #fabb61;
+                                    background-image: linear-gradient(270deg, #fabb61 0%, #f57128 100%);">
+                                        <p style="text-align: left;">
+                                            <!--inicia el parafo de los terminos y condiciones-->
+                                            Esta Política de privacidad describe cómo se recopila, utiliza y comparte su información personal cuando visita o comparte la información de contacto de <a href="#">https://kallpaskins.com</a> (el "Sitio").
+                                            <strong style="font-family: Arial, Helvetica, sans-serif;">INFORMACIÓN PERSONAL QUE RECOPILAMOS</strong><br> Cuando visita el Sitio, recopilamos automáticamente cierta información sobre su dispositivo, incluida
+                                            información sobre su navegador web, dirección IP, zona horaria y algunas de las cookies que están instaladas en su dispositivo. Además, a medida que navega por el Sitio, recopilamos información sobre las páginas
+                                            web o los productos individuales que ve, qué sitios web o términos de búsqueda lo remitieron al Sitio e información sobre cómo interactúa con el Sitio. Nos referimos a esta información recopilada automáticamente
+                                            como "Información del dispositivo". <br><strong style="font-family: Arial, Helvetica, sans-serif;">RECOPILAMOS INFORMACIÓN DEL DISPOSITIVO UTILIZANDO LAS SIGUIENTES TECNOLOGÍAS:</strong><br> Las "cookies" son
+                                            archivos de datos que su navegador web escribe en el disco duro de su computadora. Un archivo de cookie puede contener y / o recopilar automáticamente información del usuario, como un código de identificación
+                                            de usuario o una dirección IP, que un sitio web utilizará para rastrear las páginas y la cantidad de veces que las ha visitado. Los datos leídos de estas cookies pueden estar vinculados a su información de usuario,
+                                            por lo que nuestro uso de estas cookies puede permitirnos comprender mejor cómo usa nuestro Sitio o brindarle publicidad personalizada. Para obtener más información sobre las cookies y cómo deshabilitarlas,
+                                            visite
+                                            <a href="#"> http://www.allaboutcookies.org</a>. Los "archivos de registro" rastrean las acciones que ocurren en el Sitio y recopilan datos, incluida su dirección IP, tipo de navegador, proveedor de servicios
+                                            de Internet, páginas de referencia / salida y marcas de fecha / hora. Esta información siempre la proporciona el navegador del usuario y la mayoría de los sitios web la registra automáticamente. Estos archivos
+                                            de registro se almacenan en una ubicación segura y se utilizan para nuestro propósito comercial de análisis interno de los patrones de tráfico dentro de nuestro Sitio. Las "balizas web", las "etiquetas" y los
+                                            "píxeles" son archivos electrónicos que se utilizan para registrar información sobre cómo navega por el Sitio. Podemos utilizar balizas web (imágenes invisibles a menudo denominadas etiquetas de píxeles o GIF
+                                            transparentes) en nuestro Sitio para nuestros fines comerciales de reconocer a los usuarios, evaluar los patrones de tráfico, identificar el contenido preferido y medir la participación del sitio. También podemos
+                                            incluir balizas web en nuestras comunicaciones por correo electrónico, incluidos boletines informativos, para medir el compromiso con nuestras comunicaciones (por ejemplo, para contar cuántas y cuándo se han
+                                            abierto comunicaciones por correo electrónico o en qué enlaces de dichas comunicaciones se ha hecho clic) . Además, cuando realiza una compra o intenta realizar una compra a través del Sitio, recopilamos cierta
+                                            información suya, incluido su nombre, dirección de facturación, dirección de envío, información de pago (incluidos los números de tarjeta de crédito), dirección de correo electrónico y número de teléfono. Nos
+                                            referimos a esta información como "Información de pedido". Cuando hablamos de “Información personal” en esta Política de privacidad, nos referimos tanto a la Información del dispositivo como a la Información
+                                            del pedido. ¿Como usamos tu información personal? Usamos la Información del pedido que recopilamos generalmente para cumplir con cualquier pedido realizado a través del Sitio (incluido el procesamiento de su
+                                            información de pago, la organización del envío y el suministro de facturas y / o confirmaciones de pedido). Además, utilizamos esta información de pedido para: - Comunicarse contigo; - Examinar nuestros pedidos
+                                            para detectar posibles riesgos o fraudes; y - Cuando esté en línea con las preferencias que ha compartido con nosotros, proporcionarle información o publicidad relacionada con nuestros productos o servicios.
+                                            Usamos la Información del dispositivo que recopilamos para ayudarnos a detectar posibles riesgos y fraudes (en particular, su dirección IP) y, de manera más general, para mejorar y optimizar nuestro Sitio (por
+                                            ejemplo, generando análisis sobre cómo nuestros clientes navegan e interactúan con el Sitio y para evaluar el éxito de nuestras campañas de marketing y publicidad). Compartiendo su información personal Compartimos
+                                            su información personal con terceros para ayudarnos a utilizar su información personal, como se describe anteriormente. Por ejemplo, usamos Shopify para impulsar nuestra tienda en línea, puede leer más sobre
+                                            cómo Shopify usa su información personal aquí: https://www.shopify.com/legal/privacy. También utilizamos Google Analytics para ayudarnos a comprender cómo nuestros clientes usan el Sitio; puede leer más sobre
+                                            cómo Google usa su información personal aquí: https://www.google.com/intl/en/policies/privacy/. También puede optar por no participar en Google Analytics aquí: https://tools.google.com/dlpage/gaoptout. Por último,
+                                            también podemos compartir su información personal para cumplir con las leyes y regulaciones aplicables, para responder a una citación, orden de registro u otra solicitud legal de información que recibimos, o
+                                            para proteger nuestros derechos. Boletín informativo Cuando se suscribe a nuestro boletín, utilizaremos su dirección de correo electrónico para nuestros propios fines promocionales, sujeto a su consentimiento.
+                                            Los boletines son enviados exclusivamente por nosotros. El consentimiento para recibir un boletín informativo por correo electrónico se puede retirar en cualquier momento. Cada boletín contiene un enlace que
+                                            se puede utilizar para retirar el consentimiento. Publicidad comportamental Como se describió anteriormente, utilizamos su información personal para proporcionarle anuncios o comunicaciones de marketing dirigidas
+                                            que creemos que pueden ser de su interés. Para obtener más información sobre cómo funciona la publicidad dirigida, puede visitar la página educativa de Network Advertising Initiative ("NAI") en http://www.networkadvertising.org/understanding-online-advertising/how-does-it-work.
+                                            Puede optar por no recibir publicidad dirigida utilizando los enlaces a continuación: - Facebook: https://www.facebook.com/settings/?tab=ads - Google: https://www.google.com/settings/ads/anonymous - Bing: https://advertise.bingads.microsoft.com/en-us/resources/policies/personalized-ads
+                                            Además, puede optar por no participar en algunos de estos servicios visitando el portal de exclusión voluntaria de Digital Advertising Alliance en: http://optout.aboutads.info/. No rastrear Tenga en cuenta que
+                                            no modificamos las prácticas de uso y recopilación de datos de nuestro Sitio cuando vemos una señal de No rastrear desde su navegador. Tus derechos Si es un residente peruano, tiene derecho a acceder a la información
+                                            personal que tenemos sobre usted y a solicitar que se corrija, actualice o elimine su información personal. Si desea ejercer este derecho, comuníquese con nosotros a través de la información de contacto a continuación.
+                                            Además, si usted es un residente peruano, notamos que estamos procesando su información para cumplir con los contratos que podríamos tener con usted (por ejemplo, si realiza un pedido a través del Sitio) o para
+                                            perseguir nuestros intereses comerciales legítimos enumerados anteriormente. Retención de datos Cuando realiza un pedido a través del Sitio, mantendremos su Información de pedido para nuestros registros a menos
+                                            que y hasta que nos solicite que eliminemos esta información. Cambios Es posible que actualicemos esta política de privacidad de vez en cuando para reflejar, por ejemplo, cambios en nuestras prácticas o por
+                                            otras razones operativas, legales o reglamentarias, así que revísela con frecuencia. Si nuestra tienda es adquirida o fusionada con otra empresa, su información puede ser transferida a los nuevos propietarios
+                                            para que podamos seguir vendiéndole productos. GDPR Al utilizar nuestro sitio web, usted (el visitante) acepta permitir que terceros procesen su dirección IP para determinar su ubicación con el fin de realizar
+                                            la conversión de moneda. También acepta que esa moneda se almacene en una cookie de sesión en su navegador (una cookie temporal que se elimina automáticamente cuando cierra su navegador). Hacemos esto para que
+                                            la moneda seleccionada permanezca seleccionada y coherente cuando navega por nuestro sitio web para que los precios se puedan convertir a su moneda local (la del visitante). Menores Si tiene menos de 18 años,
+                                            no nos envíe ninguna información de usuario, incluida información como su nombre, dirección o dirección de correo electrónico. No recopilamos a sabiendas (ni deseamos recopilar) ninguna información de usuario
+                                            de niños menores de 18 años. En caso de que sepamos que hemos recopilado información de usuario de un niño menor de 18 años, eliminaremos esa información. de nuestra base de datos y cancelar la cuenta correspondiente,
+                                            si la hubiera. Le recomendamos que hable del Sitio con sus padres o tutores. Contáctenos Para obtener más información sobre nuestras prácticas de privacidad, si tiene preguntas o si desea presentar una queja,
+                                            comuníquese con nosotros por correo electrónico a support@kallpaskins.com. POLÍTICA DE ENVÍOS Todos los artículos ofrecidos en Kallpaskins se fabrican a pedido. Esto significa que cuando realiza su pedido, imprimimos
+                                            esos artículos solo para usted, ¡uno a la vez para obtener la mejor calidad! Este es el motivo de los plazos de entrega a continuación. Tenga en cuenta que esa es también la razón por la que podemos ofrecer
+                                            precios tan increíbles en nuestros productos. Transportista: Olva Currier, Shalom, CIVA, … la que usted prefiera Actualizaciones de Covid-19 en el tiempo de entrega: actualmente, todos los productos que ingresan
+                                            a Perú Se guardarán y retrasarán hasta que se desinfecten para minimizar la propagación del Covid-19. Es probable que esto resulte en un tiempo de tránsito adicional de 5 a 7 días hábiles. Tenga en cuenta que
+                                            debido al brote de COVID-19 (Coronavirus), las regulaciones gubernamentales pueden impedirnos enviar su pedido a tiempo. Estamos trabajando para implementar planes de contingencia y le enviaremos su pedido lo
+                                            antes posible. Si tiene algún problema con su pedido, comuníquese con nuestro equipo de atención al cliente en support@kallpaskins.com., estaremos encantados de ayudarle. Tiempos de envío Procesamos pedidos
+                                            de lunes a viernes. Los pedidos se procesarán dentro de los 2 a 5 días hábiles posteriores a la realización del pedido y se enviarán al día siguiente del día de procesamiento. Tenga en cuenta que no enviamos
+                                            los fines de semana. Países a los que podemos enviar: Enviamos a todo el mundo. El tiempo de envío aproximado acuerda a cada país: Tiempo de entrega en Perú: 10-15 días hábiles (no incluido el tiempo de producción)
+                                            Tiempo de entrega internacional: 20-25 días hábiles (no incluido el tiempo de producción) Tiempo de procesamiento: 2-5 días hábiles. Debido a la situación actual, el tiempo de envío se retrasará entre 10 y 15
+                                            días, con suerte para que todos lo entiendan. * Tenga en cuenta que estos son solo tiempos de entrega estimados. Asegúrese de que toda la información de entrega sea correcta. Si hay información incorrecta o
+                                            faltante, es posible que se nos solicite que nos comuniquemos con usted para actualizar la información de entrega, lo que puede causar demoras en la entrega de su pedido. También pueden producirse retrasos como
+                                            resultado del despacho de aduanas. Por favor, ingrese su dirección con todos los detalles; de lo contrario, el paquete que le enviamos por correo será devuelto a nosotros, o simplemente ignoraremos su solicitud
+                                            para evitarles a todos el problema. SEGUIMIENTO DEL PEDIDO ¡Recibirá un correo electrónico de confirmación con un enlace de seguimiento dependiendo de la empresa con la cual decida que se le envié el pedido,
+                                            y para que pueda seguir su pedido hasta su casa! Por favor, espere de 5 a 7 días para que el transportista escanee su paquete en su sistema. Si intenta rastrear su paquete y no hay información disponible, eso
+                                            solo significa que el transportista aún no ha procesado su paquete. Cuando el paquete se escanea en el sistema, los eventos de seguimiento se completarán en la página de seguimiento. Si supera la fecha estimada
+                                            de llegada, comuníquese con nosotros y nos encargaremos de esto por usted. DIRECCIÓN INCORRECTA Asegúrese de proporcionar la dirección correcta al finalizar la compra porque no somos responsables si su pedido
+                                            se entrega a la dirección incorrecta. Nota: Si se comunica con el transportista de la milla final después de que el pedido ha salido de nuestro almacén y le pide que reenvíe o redireccione su paquete, no somos
+                                            responsables si ese paquete se pierde, es robado o dañado. Tenga en cuenta: si los pedidos contienen varios artículos comprados el mismo momento o el mismo carrito, estos se enviarán en un solo paquete. Por
+                                            lo tanto, el plazo de entrega de cada artículo será diferente. Recibirá un número de seguimiento para cada paquete que se envía por separado. POLÍTICA DE DEVOLUCIONES Y REEMBOLSOS ¿Qué debo hacer si recibo un
+                                            artículo incorrecto o defectuoso? Lamentamos que haya recibido un artículo incorrecto o defectuoso. Para que podamos solucionar esto por usted, envíenos un mensaje a support@kallpaskins.com con la siguiente
+                                            información: Tu nombre Su número de pedido y nombre del producto (puede encontrarlo en el correo electrónico de confirmación de su pedido) Imagen de la falla / artículo incorrecto Pronto volveremos con la solución
+                                            adecuada. Nota : No ofrecemos cambios / devoluciones por tamaño a menos que sea culpa nuestra por enviar artículos defectuosos o de tamaño incorrecto. Por otras razones como problemas de costura o impresión,
+                                            nos ocuparemos de todos ellos por usted. Comuníquese con nosotros primero y lo guiaremos a través de los pasos. No nos envíe su compra a menos que le autoricemos a hacerlo. ¿Cuál es su política de reembolso?
+                                            Su satisfacción es nuestra prioridad # 1. Procesaremos un reemplazo sin ningún cargo adicional de su parte si tiene uno de los siguientes problemas: No recepción del producto dentro del tiempo garantizado (20
+                                            días hábiles excluyendo 5-7 días de procesamiento); Recepción de un artículo incorrecto (información personalizada incorrecta sobre el producto, producto incorrecto o producto borroso); y Recepción de un producto
+                                            dañado (roto). Nota : En caso de que no desee un reemplazo, puede solicitar un reembolso. No es necesario devolver el artículo incorrecto o defectuoso. No procesamos un reembolso en los siguientes casos: Su
+                                            pedido no llegó debido a factores que están bajo su control (es decir, proporcionar la dirección de envío incorrecta, no estar en casa para recibir la entrega, no recoger los paquetes según lo solicitado); y
+                                            Su pedido no llegó debido a circunstancias excepcionales fuera del control de Nuestra tienda (es decir, no haber sido autorizado por la aduana de su país, haber sido retrasado por un desastre natural, mostrar
+                                            "entrega" en el sistema de seguimiento, haber sido enviado a su buzón pero perdido ). * Envíe las solicitudes de reembolso dentro de los 15 días posteriores a la expiración del período garantizado de entrega
+                                            (20 días). Puede hacerlo enviando un correo electrónico a support@kallpaskins.com. Si se aprueba su solicitud, el reembolso se acreditará en su cuenta o en el método de pago original dentro de los 7 días hábiles.
+                                            Centro de ayuda ¡Somos Kallpa Skins! Somos un grupo de profesionales apasionados y creativos, que compartimos un gran amor por la tecnología y sus accesorios. Creemos que la tecnología es la manera de facilitarnos
+                                            la vida cada día y para cuidar esta tecnología, proporcionaremos la mejor protección para hacer que dure y perdura el tiempo necesario., hacer todo lo posible y más allá para asegurarnos de que encuentres tu
+                                            pieza. Queremos que encuentres algo que te haga sentir feliz, que te haga pensar, que te inspire confianza… o que simplemente haga que tus cosas se vean mucho más geniales. En esencia, somos una empresa interactiva
+                                            en línea. Nos gusta enfatizar la palabra interactivo. Desde la concepción de nuestra marca, nuestro principal objetivo era crear productos personalizados impresionantes de los que nuestros clientes pudieran
+                                            ser parte, al crearlos con nosotros. ¡Hagamos un producto único, único como tú! Kallpa skins se fundó con un objetivo simple: proporcionar productos personalizados sorprendentes y un gran diseño a precios atractivos,
+                                            además de productos electrónicos al cual quieran personalizar. Nuestro objetivo es ofrecer a nuestros clientes una variedad de productos de calidad que se fabrican con técnicas de impresión avanzadas. Hemos
+                                            recorrido un largo camino, por lo que sabemos exactamente qué dirección tomar cuando le proporcionemos productos de alta calidad pero económicos. Ofrecemos todo esto mientras brindamos una experiencia de compra
+                                            en línea fácil, segura y rápida, también un excelente servicio al cliente y un soporte amigable. Los intereses de nuestros clientes son siempre la máxima prioridad para nosotros, por lo que esperamos que disfrute
+                                            de nuestros productos tanto como nosotros disfrutamos poniéndolos a su disposición. Estamos atentos a las últimas tendencias, anteponiendo los deseos de nuestros clientes. Gracias por visitar nuestra tienda
+                                            y no dude en comunicarse en cualquier momento. Enviando amor, luz y buenas vibraciones a tu manera Kallpa Skins Dirección de nuestra oficina Av. Inca Garcilso de la Vega N° 1774 Dep. 102. Bloque. “F”. Nuestro
+                                            equipo de diseño. Dirección: Av. Inca Garcilso de la Vega N° 1774 Dep. 102. Bloque. “F”.
+
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--fin Modal-->
+                        <button type="submit" class="btn btn-success btn-lg" style="width: 100%;">REGISTRARSE</button>
+                    </form>
+                    <hr class="hr mt-6">
+                    <a routerLink="/login" class="nav-link">¿Ya eres miembro?</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mx-auto mt-5" style="width: 50%;">
+            <h4>KALLPA SKINS STORE</h4>
+
+        </div>
+    </div>
+</div>

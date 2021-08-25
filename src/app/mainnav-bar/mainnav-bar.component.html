@@ -1,37 +1,64 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
-        <a class="navbar-brand" style="padding-left: 0.05cm; width: 15%;">
-            <img style="width: 50px; border-radius: 20px;" src="../assets/logo_kallpa.png" alt="KallpaSkins"> Kallpa Skins
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary navbar-fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" style="padding-left: 0.05cm; width: 15%; font-size: 25px;">
+                <img style="width: 50px; border-radius: 20px;" src="../assets/logo_kallpa.png" alt="KallpaSkins"> Kallpa Skins
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#"> <i class="fas fa-home"></i> HOME</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-badge-percent"></i> OFERTAS </a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Skins por Categoria <i class="fas fa-mobile"></i>
-        </a>
-                    <ul class="dropdown-menu bg-warning" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" routerLink="home"> <i class="fas fa-home"></i> HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-badge-percent"></i> OFERTAS </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Skins por Categoria <i class="fas fa-mobile"></i>
+                        </a>
+                        <ul class="dropdown-menu bg-warning" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li *ngIf="User$ | async as admin">
+                        <a *ngIf="admin['email'] == 'admin@gmail.com'" class="nav-link" routerLink="/acount/AIzaSyC8JDeAyKIob3kZWaYEDbZBrb1epwDJA9g/admin">ADMINISTRADOR</a>
+                        <a *ngIf="admin['email'] != 'admin@gmail.com'" class="nav-link" routerLink='/acount/AIzaSyC8JDeAyKIob3kZWaYEDba$$%%%$/user'>USUARIO</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href='https://wa.me/+51966838629?text=Hola%20KallpaSkins%20Quisiera%20saber%20más%20de%20sus%20Productos.' style="color: #03ff03; font-size: 20px;"> <b>WhatsApp <i class="fab fa-whatsapp"></i></b> </a>
+                    </li>
+                </ul>
+                <ul class="d-flex navbar-dark" style="padding-right: 30px;" *ngIf="User$ | async as user; else login">
+                    <li *ngIf="user" class="nav-item navbar-nav">
+                        <a class="nav-link" style="color: whitesmoke;" routerLink="/" routerLinkActive="active"> <i class="fas fa-user"></i> {{user['email']}}
+                        </a>
+                    </li>
+                    <li *ngIf="user" class="nav-item navbar-nav">
+                        <a class="nav-link" style="color: whitesmoke;" routerLink="/login" routerLinkActive="active" (click)="logOut()"> <i class="fas fa-sign-out-alt mx-2"></i> LogOut
+                        </a>
+                    </li>
+                </ul>
+                <ng-template #login>
+                    <ul class="d-flex navbar-dark">
+                        <li class="nav-item navbar-nav">
+                            <a class="nav-link" style="color: whitesmoke;" routerLink="/login" routerLinkActive="active"> <i class="fas fa-user"></i> Login</a>
                         </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li class="nav-item navbar-nav">
+                            <a class="nav-link" style="color: whitesmoke;" routerLink="/signup" routerLinkActive="active">Register
+                          <i class="fas fa-user-plus"></i></a>
+                        </li>
                     </ul>
-                </li>
-            </ul>
-            <form class="d-flex navbar-dark" style="padding-right: 30px;">
-                <a class="nav-link" style="color: whitesmoke;" routerLink=""> <i class="fas fa-user"></i> Login / SignUp
-                    <i class="fas fa-user-plus"></i></a>
-            </form>
+                </ng-template>
+
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+</div>
