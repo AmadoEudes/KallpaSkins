@@ -5,6 +5,7 @@ import {FormsModule} from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from "../environments/environment";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { ReactiveFormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +23,8 @@ import { UsuarioComponent } from './componentes/usuario/usuario.component';
 import { AdministradorComponent } from './componentes/administrador/administrador.component';
 import { RegisterComponent } from './register/register.component';
 
+import { ProductItemComponent } from './componentes/home/product-item/product-item.component';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +35,8 @@ import { RegisterComponent } from './register/register.component';
     AccessComponent,
     UsuarioComponent,
     AdministradorComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProductItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +45,7 @@ import { RegisterComponent } from './register/register.component';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireStorageModule,
     ReactiveFormsModule,
     AngularFireAuthModule
   ],
