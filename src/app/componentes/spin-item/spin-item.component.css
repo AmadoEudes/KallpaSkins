@@ -1,0 +1,17 @@
+.num {
+    width: 60px;
+    border: none;
+    font-size: 30px;
+    color: aliceblue;
+}
+
+input[type="number"] {
+    -webkit-appearance: textfield !important;
+    -moz-appearance: textfield !important;
+    appearance: textfield !important;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}

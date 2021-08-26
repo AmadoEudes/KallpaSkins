@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from "../environments/environment";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { ReactiveFormsModule } from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainnavBarComponent } from './mainnav-bar/mainnav-bar.component';
 import { LoginComponent } from './login-checkin/login-checkin.component';
+import { ToastrModule } from 'ngx-toastr';
 
 import { UserServicesService } from "../app/services/user-services.service";
 import { AngularFireAuthModule } from "@angular/fire/auth";
@@ -22,6 +24,8 @@ import { AccessComponent } from './login-checkin/access/access.component';
 import { UsuarioComponent } from './componentes/usuario/usuario.component';
 import { AdministradorComponent } from './componentes/administrador/administrador.component';
 import { RegisterComponent } from './register/register.component';
+import { SpinItemComponent } from './componentes/spin-item/spin-item.component';
+
 
 import { ProductItemComponent } from './componentes/home/product-item/product-item.component';
 
@@ -36,7 +40,11 @@ import { ProductItemComponent } from './componentes/home/product-item/product-it
     UsuarioComponent,
     AdministradorComponent,
     RegisterComponent,
+<<<<<<< HEAD
     ProductItemComponent,
+=======
+    SpinItemComponent
+>>>>>>> Frank
   ],
   imports: [
     BrowserModule,
@@ -47,7 +55,9 @@ import { ProductItemComponent } from './componentes/home/product-item/product-it
     AngularFirestoreModule,
     AngularFireStorageModule,
     ReactiveFormsModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [UserServicesService, AuthService ],
   bootstrap: [AppComponent]
