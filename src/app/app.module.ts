@@ -24,6 +24,7 @@ import { AdministradorComponent } from './componentes/administrador/administrado
 import { RegisterComponent } from './register/register.component';
 
 import { ProductItemComponent } from './componentes/home/product-item/product-item.component';
+import { FooterComponent } from './componentes/footer/footer.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { ProductItemComponent } from './componentes/home/product-item/product-it
     AdministradorComponent,
     RegisterComponent,
     ProductItemComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

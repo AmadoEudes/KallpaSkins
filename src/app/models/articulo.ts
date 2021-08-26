@@ -5,7 +5,7 @@ export interface Articulo{
   categoria : '';
   precio : number;
   offerPrice : number;
-  imageURL : '';
+  imageURL : string;
   oferta : '';
   descripcion : '';
 }

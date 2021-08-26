@@ -2,6 +2,7 @@ import { Articulo } from './../../models/articulo';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { FirebaseStorageService } from 'src/app/services/firebase-storage.service';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-administrador',
@@ -28,6 +29,7 @@ export class AdministradorComponent implements OnInit {
   'LITTLE PETS', 'KITTEN', 'SWEET HOLDOVER']
 
   oferta : string[] = ['NO', 'OFERTAR']
+  
 
   constructor(private fbuilder : FormBuilder, private firebaseStorage: FirebaseStorageService) {
     this.createArticulo = this.fbuilder.group({
@@ -70,6 +72,8 @@ export class AdministradorComponent implements OnInit {
   public porcentaje = 0;
   public finalizado = false;
 
+  downloadURL: any;
+
   public cambioArchivo(event: any) {
     if (event.target.files.length > 0) {
       for (let i = 0; i < event.target.files.length; i++) {
@@ -89,7 +93,14 @@ export class AdministradorComponent implements OnInit {
     let referencia = this.firebaseStorage.referenciaCloudStorage(this.nombreArchivo);
     let tarea = this.firebaseStorage.tareaCloudStorage(this.nombreArchivo, archivo);
 
-
+    tarea.snapshotChanges().pipe(
+      finalize(()=>{
+      this.downloadURL= referencia.getDownloadURL()
+      this.downloadURL.subscribe((url: string) =>(this.articulo.imageURL =url));
+      })
+      )
+      .subscribe();
+      
     referencia.getDownloadURL().subscribe((URL) => {
       this.articulo.imageURL = URL;
       
