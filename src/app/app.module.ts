@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from "../environments/environment";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { ReactiveFormsModule } from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainnavBarComponent } from './mainnav-bar/mainnav-bar.component';
 import { LoginComponent } from './login-checkin/login-checkin.component';
+import { ToastrModule } from 'ngx-toastr';
 
 import { UserServicesService } from "../app/services/user-services.service";
 import { AngularFireAuthModule } from "@angular/fire/auth";
@@ -22,6 +24,7 @@ import { UsuarioComponent } from './componentes/usuario/usuario.component';
 import { AdministradorComponent } from './componentes/administrador/administrador.component';
 import { RegisterComponent } from './register/register.component';
 import { SpinItemComponent } from './componentes/spin-item/spin-item.component';
+
 
 
 @NgModule({
@@ -44,7 +47,9 @@ import { SpinItemComponent } from './componentes/spin-item/spin-item.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     ReactiveFormsModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [UserServicesService, AuthService ],
   bootstrap: [AppComponent]

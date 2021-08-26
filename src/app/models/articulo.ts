@@ -3,9 +3,8 @@ export interface Articulo{
   cantidad : number;
   categoria : '';
   precio : number;
-  offerPrice : number;
   imageURL : '';
   oferta : '';
-  descripcion : ''
-
+  descripcion : '';
+  offer : number;
 }

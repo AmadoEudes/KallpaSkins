@@ -1,1 +1,8 @@
-<p>spin-item works!</p>
+<div class="bg-primary" style="width: 160px; margin:0px; text-align: center; height: 55px;">
+    <button class="btn btn-primary p-2 px-3" (click)="handleMinus()" style="border-radius: 0px; margin: 0px;"> <i class="fas fa-minus"></i></button>
+    <input type="number" class="input bg-primary num" value="0" [(ngModel)]="value" style="border: none;
+     -webkit-appearance: textfield !important;
+    -moz-appearance: textfield !important;
+    appearance: textfield !important;" />
+    <button class="btn btn-primary p-2" (click)="handlePlus()" style="border-radius: 0px; margin: 0px;"><i class="fas fa-plus"></i></button>
+</div>

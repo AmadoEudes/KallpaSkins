@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, VERSION } from '@angular/core';
 
 @Component({
   selector: 'app-spin-item',
@@ -10,6 +10,16 @@ export class SpinItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  name = 'Angular ' + VERSION.major;
+  value = 0;
+
+  handleMinus() {
+    this.value--;
+  }
+  handlePlus() {
+    this.value++;
   }
 
 }
