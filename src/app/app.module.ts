@@ -40,11 +40,8 @@ import { ProductItemComponent } from './componentes/home/product-item/product-it
     UsuarioComponent,
     AdministradorComponent,
     RegisterComponent,
-<<<<<<< HEAD
     ProductItemComponent,
-=======
-    SpinItemComponent
->>>>>>> Frank
+    SpinItemComponent,
   ],
   imports: [
     BrowserModule,
