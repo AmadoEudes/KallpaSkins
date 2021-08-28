@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body style="background-color: rgb(245, 244, 244);">
-    <div class="d-flex">
+<body style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_I280o1-j3O-l9i9ZIRnuLoJ_y6FYqMHIQw&usqp=CAU;') ">
+    <div class="container-flex">
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -36,14 +36,14 @@
             </button>
         </div>
     </div>
-    <div class="container" style="background-color: white; margin-top: 20px;">
+    <div class="container" style="background-color: white; margin-top: 20px; padding-left: 2%; padding-right: 2%;">
         <div class="d-flex align-items-center" style="">
-            <div style="margin-top: 20px; margin-bottom: 10px ">
-                <h3><b>Productos principales</b></h3>
+            <div style="margin-top: 20px; margin-bottom: 10px; text-align: center; margin-left: 40%;">
+                <h3 style="text-align: center;"><b>Productos principales</b></h3>
             </div>
         </div>
-        <div class="row align-items-center " style="padding: 5px;">
-            <div class="col-md-3 " style="padding: 10px;" *ngFor="let i of [1,2,3,4,5,6]">
+        <div class="row align-items-center ">
+            <div class="col-md-3 "  *ngFor="let i of [1,2,3,4,5,6]">
                 <app-product-item></app-product-item>
                 
             </div>
