@@ -13,8 +13,9 @@ import { Observable } from "rxjs";
 export class HomeComponent implements OnInit {
 
   items : Observable<any[]>;
+
   constructor(firestore: AngularFirestore) {
-    this.items = firestore.collection('usuarios').valueChanges();
+    this.items = firestore.collection("articulos").valueChanges();
   }
 
   ngOnInit(): void {
