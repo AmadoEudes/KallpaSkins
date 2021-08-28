@@ -1,7 +1,14 @@
 <div style="width: 100%;">
     <ul>
         <li class="text" *ngFor="let item of items | async" style="width: 100%;">
-            {{item.url}}
+            {{item.nombre}}
         </li>
     </ul>
+</div>
+<div>
+    <div style="width: 370px; height: 800px;" id="video-detach-button" aria-label="Detach button" active="active">
+        <iframe width="370" height="800" src="https://cutt.ly/LWpL5Ip" title="YouTube video" allowfullscreen></iframe>
+    </div>
+
+
 </div>

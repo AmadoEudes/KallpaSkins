@@ -1,17 +1,13 @@
-.num {
-    width: 60px;
-    border: none;
-    font-size: 30px;
-    color: aliceblue;
+.quantity-style {
+    text-align: center;
+    min-width: 38px;
+    max-width: 38px;
 }
 
-input[type="number"] {
-    -webkit-appearance: textfield !important;
-    -moz-appearance: textfield !important;
-    appearance: textfield !important;
+.quantity-wrapper {
+    width: 40px;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
+.inpt {
+    width: 50px;
 }

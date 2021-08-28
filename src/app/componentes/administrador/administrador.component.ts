@@ -59,7 +59,7 @@ export class AdministradorComponent implements OnInit {
     if(this.createArticulo.invalid){
       return
     }
-    const articulo : any = {
+    const Articulo : any = {
       nombre : this.createArticulo.value.nombre,
       cantidad : this.createArticulo.value.cantidad,
       Categoria : this.createArticulo.value.Categoria,
@@ -71,14 +71,24 @@ export class AdministradorComponent implements OnInit {
       created_at : new Date(),
       upload_at : new Date()
     }
-    this.articuloService.addArticle(articulo).then(()=> {
+    this.articuloService.addArticle(Articulo).then(()=> {
       this.toastr.success('Articulo registrado con exito!', 'Articulo registrado', {
         positionClass: 'toast-bottom-right'
-      })
+      });
+
     }).catch( err => {
             console.log(err)
     })
-    console.log(articulo);
+    this.articulo.nombre = '';
+    this.articulo.cantidad = 0;
+    this.articulo.categoria = '';
+    this.articulo.precio = 0;
+    this.articulo.oferta = '';
+    this.articulo.imageURL = '';
+    this.articulo.descripcion = '';
+    this.articulo.offer = 0;
+    this.submitted = false
+
   }
 
 }

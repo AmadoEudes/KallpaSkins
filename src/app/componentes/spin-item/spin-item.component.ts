@@ -13,10 +13,13 @@ export class SpinItemComponent implements OnInit {
   }
 
   name = 'Angular ' + VERSION.major;
-  value = 0;
+  value = 1;
 
   handleMinus() {
-    this.value--;
+    if(this.value >1){
+      this.value--;
+    }
+
   }
   handlePlus() {
     this.value++;

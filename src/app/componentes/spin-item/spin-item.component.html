@@ -1,8 +1,29 @@
-<div class="bg-primary" style="width: 160px; margin:0px; text-align: center; height: 55px;">
-    <button class="btn btn-primary p-2 px-3" (click)="handleMinus()" style="border-radius: 0px; margin: 0px;"> <i class="fas fa-minus"></i></button>
-    <input type="number" class="input bg-primary num" value="0" [(ngModel)]="value" style="border: none;
-     -webkit-appearance: textfield !important;
-    -moz-appearance: textfield !important;
-    appearance: textfield !important;" />
-    <button class="btn btn-primary p-2" (click)="handlePlus()" style="border-radius: 0px; margin: 0px;"><i class="fas fa-plus"></i></button>
+<div style="display: inline-block; background: rgb(238, 238, 238); border-radius: 5px; border: solid silver 1px;">
+    <!--btn --->
+    <label class=" quantity-wrapper" style="background: cornflowerblue; border: solid silver 1px;
+    border-radius: 5px 0px 0px 5px;">
+        <label>
+    <button type="button" class="btn" data-type="minus"  (click)="handleMinus()">
+      <i class="fas fa-minus text-light"></i>
+    </button>
+    </label>
+
+    </label>
+    <!--input-->
+    <label class="inpt" style="background:rgb(238, 238, 238) ;">
+        <label>
+    <input readonly type="text" name="quant[2]" class="form-control" value="1" [(ngModel)]="value" min="0" max="15" style="background: rgb(238, 238, 238);
+    border: none; font-size: 15px;">
+    </label>
+    </label>
+
+    <!--btn +-->
+    <label class="quantity-wrapper" style="background: cornflowerblue; border: solid 1px silver;;
+    border-radius: 0px 5px 5px 0px;">
+      <label>
+        <button type="button" class="btn  " data-type="plus" data-field="quant[2]" (click)="handlePlus()">
+          <i class="fas fa-plus text-light"></i>
+        </button>
+        </label>
+    </label>
 </div>

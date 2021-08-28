@@ -1,29 +1,36 @@
 <div class="container">
     <div class="row">
 
-        <div class="col-md-4 mx-auto mt-5">
+        <div class="col-md-4 mx-auto mt-5" style="padding: 0px;">
 
-            <div class="card" style="text-align: center;">
-                <div class="card-body">
-                    <h3>LOGIN</h3>
-                    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-                        <div class="input-group mb-3 mt-3">
-                            <span class="input-group-text" id="basic-addon1">
+            <div class="card  shadow-lg login-wrap" style="text-align: center; border-radius: 20px; ">
+                <div class="card-body login-html" style="border-radius: 20px;">
+                    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab"><a routerLink="/login">login</a> </label>
+                    <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"><a routerLink="/signup">REGISTRO</a> </label>
+                    <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="login-form">
+                        <div class="group mb-3 mt-3 ">
+                            <span class="label py-3" id="basic-addon1">
                            <i class="far fa-envelope "></i><i class="fas fa-at mx-2"></i> EMAIL</span>
-                            <input type="text" class="form-control" placeholder="Email" formControlName="email" aria-label="Username" aria-describedby="basic-addon1">
+                            <input type="text" class="input form-control" placeholder="Email" formControlName="email" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
-                        <div class="input-group mb-3 mt-3">
-                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock mx-2"></i>PASSWORD</span>
-                            <input type="password" class="form-control" placeholder="Password" formControlName="password" aria-label="Username" aria-describedby="basic-addon1">
+
+                        <div class="group mb-3 mt-3">
+                            <span class="label py-3" id="basic-addon1"><i class="fas fa-lock mx-2"></i>PASSWORD</span>
+                            <input type="password" class="input form-control" placeholder="Password" formControlName="password" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
-                        <button type="submit" class="btn btn-success btn-lg">INICIAR SESIÓN</button>
+                        <div class="group">
+                            <button type="submit" class="button" style="width: 100%;">INICIAR SESIÓN</button>
+                        </div>
+
+
+
                     </form>
                     <hr class="hr mb-6">
-                    <a routerLink="/signup" class="nav-link">¿Aún no tienes una cuenta?</a>
+                    <a routerLink="/signup" class="nav-link" style="color: silver;">¿Aún no tienes una cuenta?</a>
                 </div>
             </div>
         </div>
-        <div class="col-md-3 mx-auto mt-5" style="width: 50%;">
+        <div class="col-md-3 mx-auto mt-5" style="width: auto;">
             <h4>KALLPA SKINS STORE</h4>
 
         </div>

@@ -1,8 +1,8 @@
 <div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary navbar-fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark  navbar-fixed-top" style="background: #1976d2;">
         <div class="container-fluid">
-            <a class="navbar-brand" style="padding-left: 0.05cm; width: 15%; font-size: 25px;">
-                <img style="width: 50px; border-radius: 20px;" src="../assets/logo_kallpa.png" alt="KallpaSkins"> Kallpa Skins
+            <a class="navbar-brand" style=" width: 15%;    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+                <img style="width: 40px; border-radius: 25px;" src="../assets/logo_kallpa.png" alt="KallpaSkins"> KALLPA SKINS
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -19,13 +19,19 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Skins por Categoria <i class="fas fa-mobile"></i>
                         </a>
-                        <ul class="dropdown-menu bg-warning" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <ul class="dropdown-menu " style="background: #ff7900;" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item " href="#">FIBRA CARBONO</a></li>
+                            <li><a class="dropdown-item" href="#">CUERO</a></li>
+                            <li><a class="dropdown-item" href="#">FROSTED GLITTER</a></li>
+                            <li><a class="dropdown-item" href="#">CAMUFLAGE</a></li>
+                            <li><a class="dropdown-item" href="#">TEXTURA</a></li>
+                            <li><a class="dropdown-item" href="#">MÁRMOL</a></li>
+                            <li><a class="dropdown-item" href="#">ASTRONAUTA</a></li>
+                            <li><a class="dropdown-item" href="#">FRASES</a></li>
+                            <li><a class="dropdown-item" href="#">CUTE</a></li>
+                            <li><a class="dropdown-item" href="#">LTTLE PETS</a></li>
+                            <li><a class="dropdown-item" href="#">KITTEN</a></li>
+                            <li><a class="dropdown-item" href="#">SWEET HOLDOVER</a></li>
                         </ul>
                     </li>
                     <li *ngIf="User$ | async as admin">
@@ -42,7 +48,7 @@
                         </a>
                     </li>
                     <li *ngIf="user" class="nav-item navbar-nav">
-                        <a class="nav-link" style="color: whitesmoke;" routerLink="/login" routerLinkActive="active" (click)="logOut()"> <i class="fas fa-sign-out-alt mx-2"></i> LogOut
+                        <a class="nav-link" style="color: whitesmoke;" routerLink="/login" routerLinkActive="active" (click)="logOut()"> <strong style="color: rgba(255, 173, 173, 0.918);"><i class="fas fa-sign-out-alt mx-2"></i> LogOut</strong>
                         </a>
                     </li>
                 </ul>

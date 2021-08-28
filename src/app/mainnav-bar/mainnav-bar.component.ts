@@ -10,6 +10,10 @@ import { Router } from '@angular/router';
 })
 export class MainnavBarComponent {
 
+  categorias : string[] = ['FIBRA CARBONO', 'CUERO', 'FROSTED GLITTER', 'CAMUFLAJE',
+  'TEXTURA', 'MÁRMOL', 'ASTRONAUTA', 'FRASES', 'CUTE',
+  'LITTLE PETS', 'KITTEN', 'SWEET HOLDOVER']
+
   title = 'KallpaSkins';
 
   isAdmin = false
