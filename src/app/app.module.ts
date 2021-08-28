@@ -28,6 +28,7 @@ import { SpinItemComponent } from './componentes/spin-item/spin-item.component';
 
 
 import { ProductItemComponent } from './componentes/home/product-item/product-item.component';
+import { FooterComponent } from './componentes/footer/footer.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { ProductItemComponent } from './componentes/home/product-item/product-it
     RegisterComponent,
     ProductItemComponent,
     SpinItemComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
