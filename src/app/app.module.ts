@@ -31,6 +31,7 @@ import { ShoppingCartComponent } from './componentes/shopping-cart/shopping-cart
 
 import { ProductItemComponent } from './componentes/home/product-item/product-item.component';
 import { FooterComponent } from './componentes/footer/footer.component';
+import { CartItemComponent } from './componentes/shopping-cart/cart-item/cart-item.component';
 
 
 @NgModule({
@@ -46,8 +47,9 @@ import { FooterComponent } from './componentes/footer/footer.component';
     ProductItemComponent,
     SpinItemComponent,
     SpinItemComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
     FooterComponent,
+    CartItemComponent,
   ],
   imports: [
     BrowserModule,
