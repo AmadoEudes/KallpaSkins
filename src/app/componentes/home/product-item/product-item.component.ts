@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { Articulo } from 'src/app/models/articulo';
 
 @Component({
   selector: 'app-product-item',
@@ -6,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-item.component.css']
 })
 export class ProductItemComponent implements OnInit {
+  @Input () articulo!: Articulo;
 
-  constructor() { }
+  item : Observable<any[]>;
 
+  constructor(firestore: AngularFirestore) {
+    this.item = firestore.collection("articulos").valueChanges();
+
+  }
   ngOnInit(): void {
   }
 

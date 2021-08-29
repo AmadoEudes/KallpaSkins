@@ -6,6 +6,6 @@ export interface Articulo{
   precio : number;
   imageURL : string;
   oferta : '';
-  descripcion : '';
+  descripcion : string;
   offer : number;
 }

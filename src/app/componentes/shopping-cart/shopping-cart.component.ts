@@ -11,7 +11,6 @@ import { DatePipe } from '@angular/common';
 export class ShoppingCartComponent implements OnInit {
 
   cartItems: any[] =[];
-  cartItems_historial: any[]=[];
 
   id!: number;
     // Ejemplos con los que se puede llenar la lista
@@ -22,56 +21,10 @@ export class ShoppingCartComponent implements OnInit {
   cartTotal = 0;
   
   constructor(private msj: CartService,
-              private datePipe: DatePipe,
+              
       ) { }
   ngOnInit(): void {
-    //Carga el precio Total que se muestra al lado del icono, específicamente lo carga ni bien inicia el componente
-    //Resuelve el error de que siempre inicie con 00.00
-    this.msj.receiveSignal().subscribe(
-      () => {
-      // tslint:disable-next-line: no-unused-expression
-      this.enviarIconoCartTotal();
-      },
-      
-    );
-    /*this.msg.recibirSeñal().subscribe(
-      () => {
-      // tslint:disable-next-line: no-unused-expression
-      this.enviarHistorial();
-      },
-      
-    );*/
-
-    //Se limpian los elementos del carrito si es que el usuario no está logueado
-
-    this.msj.recibirDatos().subscribe(
-      (item: any) => {
-      // tslint:disable-next-line: no-unused-expression
-      this.addProductToCart(item);
-      console.log(this.cartTotal)
-      },
-      
-    );
-
-    this.msj.recibirDatos_remove().subscribe(
-      (item_remove: any) => {
-      // tslint:disable-next-line: no-unused-expression
-      
-      this.removeProductTocart(this.cartItems, item_remove);
-      this.removeProductTocart(this.cartItems_historial, item_remove);
-      console.log(this.cartItems)
-      },
-      
-    );
     
-    this.msj.recibirDatos_Eliminarlista().subscribe(
-      () => {
-      // tslint:disable-next-line: no-unused-expression
-      this.vaciarCarrito();
-      console.log("Ya no hay elementos en el carrito")
-      },
-      
-    );
 
   }
 
@@ -119,8 +72,6 @@ export class ShoppingCartComponent implements OnInit {
       
       this.msj.enviarDatos_shoppingcart(this.cartItems);
       let fecha=new Date();
-      let newFecha=this.datePipe.transform(fecha, 'dd-MM-yyyy');
-      let hora=this.datePipe.transform(fecha, 'shortTime');
       this.cartTotal=Number(this.cartTotal.toFixed(2));
     }
     
@@ -139,6 +90,7 @@ export class ShoppingCartComponent implements OnInit {
     console.log("Se envía el historial")
     //this.msg.enviarHistorial(this.cartItems_historial);
   }
+  
   confirmarPedido(){
     //Envía la señal para que el historial se cargue
     //this.msg.enviarSeñal();
