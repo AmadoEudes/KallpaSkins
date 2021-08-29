@@ -1,3 +1,7 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 <div>
     <nav class="navbar navbar-expand-lg navbar-dark  navbar-fixed-top" style="background: #1976d2;">
         <div class="container-fluid">
@@ -16,7 +20,7 @@
                         <a class="nav-link" href="#"><i class="fas fa-badge-percent"></i> OFERTAS </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Skins por Categoria <i class="fas fa-mobile"></i>
                         </a>
                         <ul class="dropdown-menu " style="background: #ff7900;" aria-labelledby="navbarDropdown">
@@ -35,14 +39,21 @@
                         </ul>
                     </li>
                     <li *ngIf="User$ | async as admin">
-                        <a *ngIf="admin['email'] == 'admin@gmail.com'" class="nav-link" routerLink="/acount/AIzaSyC8JDeAyKIob3kZWaYEDbZBrb1epwDJA9g/admin">ADMINISTRADOR</a>
-                        <a *ngIf="admin['email'] != 'admin@gmail.com'" class="nav-link" routerLink='/acount/AIzaSyC8JDeAyKIob3kZWaYEDba$$%%%$/user'>USUARIO</a>
+                        <a *ngIf="admin['email'] == 'admin@kallpaskins.com'" class="nav-link" routerLink="/acount/AIzaSyC8JDeAyKIob3kZWaYEDbZBrb1epwDJA9g/admin">ADMINISTRADOR</a>
+                        <a *ngIf="admin['email'] != 'admin@kallpaskins.com'" class="nav-link" routerLink='/acount/AIzaSyC8JDeAyKIob3kZWaYEDba$$%%%$/user'>USUARIO</a>
                     </li>
                     <li>
                         <a class="nav-link" href='https://wa.me/+51966838629?text=Hola%20KallpaSkins%20Quisiera%20saber%20más%20de%20sus%20Productos.' style="color: #03ff03; font-size: 20px;"> <b>WhatsApp <i class="fab fa-whatsapp"></i></b> </a>
                     </li>
                 </ul>
+                <ul style="margin: 0px;">
+                    <li class="nav-item navbar-nav">
+                        <!--carrito de compras-->
+                        <app-shopping-cart></app-shopping-cart>
+                    </li>
+                </ul>
                 <ul class="d-flex navbar-dark" style="padding-right: 30px;" *ngIf="User$ | async as user; else login">
+
                     <li *ngIf="user" class="nav-item navbar-nav">
                         <a class="nav-link" style="color: whitesmoke;" routerLink="/" routerLinkActive="active"> <i class="fas fa-user"></i> {{user['email']}}
                         </a>
@@ -63,6 +74,7 @@
                         </li>
                     </ul>
                 </ng-template>
+
 
             </div>
         </div>

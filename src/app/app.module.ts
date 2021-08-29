@@ -8,6 +8,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {NgParticlesModule} from "ng-particles";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,7 @@ import { UsuarioComponent } from './componentes/usuario/usuario.component';
 import { AdministradorComponent } from './componentes/administrador/administrador.component';
 import { RegisterComponent } from './register/register.component';
 import { SpinItemComponent } from './componentes/spin-item/spin-item.component';
+import { ShoppingCartComponent } from './componentes/shopping-cart/shopping-cart.component';
 
 
 import { ProductItemComponent } from './componentes/home/product-item/product-item.component';
@@ -42,6 +44,8 @@ import { ProductItemComponent } from './componentes/home/product-item/product-it
     RegisterComponent,
     ProductItemComponent,
     SpinItemComponent,
+    SpinItemComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +58,8 @@ import { ProductItemComponent } from './componentes/home/product-item/product-it
     ReactiveFormsModule,
     AngularFireAuthModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgParticlesModule
   ],
   providers: [UserServicesService, AuthService ],
   bootstrap: [AppComponent]
