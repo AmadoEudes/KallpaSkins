@@ -96,7 +96,7 @@
             <div class="card-body" style="padding: 0px;">
                 <!--debajo modelo de vista previa-->
                 <div class="card mb-3 shadow-lg" style="border-radius: 15px;">
-                    <img [src]="articulo.imageURL  == '' ? '/assets/default-image.png' : articulo.imageURL" alt="Article" class="card-img-top">
+                    <img [src]="articulo.imageURL  == '' ? '/assets/default-image.png' : articulo.imageURL" alt="Article" class="card-img-top" style="width: 370px; height: 400px;">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-text d-flex justify-content-center mb-1"> <strong style="font-family:Arial, Helvetica, sans-serif;">{{articulo.nombre == "" ? 'ESCRIBE NOMBRE DEL ARTICULO' : articulo.nombre}} </strong></h5>
                         <p *ngIf="!(createArticulo.controls.oferta.value == 'OFERTAR')" class="card-text d-flex justify-content-center">

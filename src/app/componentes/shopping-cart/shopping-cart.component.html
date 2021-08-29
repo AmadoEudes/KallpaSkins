@@ -1,0 +1,30 @@
+<div class="dropdown">
+    <a class="btn btn-secondar nav-link" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fad fa-shopping-cart fa-lg"></i><span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        {{shopping_cart.length}}
+        <span class="visually-hidden">unread messages</span>
+        </span>
+    </a>
+
+    <ul class="dropdown-menu">
+        <li *ngFor="let article of shopping_cart">
+            <table>
+                <tr>
+                    <td>
+                        {{article["nombre"]}}
+                    </td>
+                    <td>
+                        {{article["cantidad"]}}
+                    </td>
+                    <td>
+                        {{article["importe"]}}
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger"> <i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+            </table>
+
+        </li>
+    </ul>
+</div>
