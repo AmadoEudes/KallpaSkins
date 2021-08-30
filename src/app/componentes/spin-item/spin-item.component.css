@@ -11,3 +11,29 @@
 .inpt {
     width: 50px;
 }
+
+.elemento {
+    border: none;
+}
+
+button[type=button] {
+    border: none;
+    outline: none;
+    padding: .375rem .75rem;
+    background: none;
+}
+
+button[type=button]:focus {
+    border: none;
+    outline: none;
+}
+
+button[type=button]::before {
+    border: none;
+    outline: none;
+}
+
+.form-control:focus {
+    border: none;
+    outline: none;
+}

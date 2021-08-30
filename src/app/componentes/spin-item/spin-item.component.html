@@ -1,28 +1,28 @@
-<div style="display: inline-block; background: rgb(238, 238, 238); border-radius: 5px; border: solid silver 1px;">
+<div style="display: inline-block; background: rgb(255, 254, 254); border-radius: 20px; border: solid silver 1px;">
     <!--btn --->
-    <label class=" quantity-wrapper" style="background: cornflowerblue; border: solid silver 1px;
-    border-radius: 5px 0px 0px 5px;">
+    <label class=" quantity-wrapper" style=" border-right: solid silver 1px;
+    border-radius: 20px 0px 0px 20px;">
         <label>
-    <button type="button" class="btn" data-type="minus"  (click)="handleMinus()">
-      <i class="fas fa-minus text-light"></i>
+    <button type="button"  data-type="minus"  (click)="handleMinus()">
+      <i class="fal fa-minus" style="color: rgb(104, 103, 103);"></i>
     </button>
     </label>
 
     </label>
     <!--input-->
-    <label class="inpt" style="background:rgb(238, 238, 238) ;">
+    <label class="inpt" style="background:rgb(255, 255, 255) ;">
         <label>
-    <input readonly type="text" name="quant[2]" class="form-control" value="1" [(ngModel)]="value" min="0" max="15" style="background: rgb(238, 238, 238);
+    <input readonly type="text" name="quant[2]" class="form-control" value="1" [(ngModel)]="value" min="0" max="15" style="background: rgb(255, 255, 255);
     border: none; font-size: 15px;">
     </label>
     </label>
 
     <!--btn +-->
-    <label class="quantity-wrapper" style="background: cornflowerblue; border: solid 1px silver;;
-    border-radius: 0px 5px 5px 0px;">
+    <label class="quantity-wrapper" style=" border-left: silver solid 1px;
+    border-radius: 0px 20px 20px 0px;">
       <label>
-        <button type="button" class="btn  " data-type="plus" data-field="quant[2]" (click)="handlePlus()">
-          <i class="fas fa-plus text-light"></i>
+        <button type="button"  data-type="plus" data-field="quant[2]" (click)="handlePlus()">
+          <i class="fal fa-plus" style="color: rgb(104, 103, 103);"></i>
         </button>
         </label>
     </label>
