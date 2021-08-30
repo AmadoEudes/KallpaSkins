@@ -19,7 +19,7 @@ export class ProductItemComponent implements OnInit {
 
   item : Observable<any[]>;
 
-  value!: number;
+  value: number=1;
   
 
   constructor(firestore: AngularFirestore, private cartService: CartService) {

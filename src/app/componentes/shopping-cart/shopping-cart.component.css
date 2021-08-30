@@ -8,8 +8,23 @@
 #totaltitulo{
     margin-right: 1.5vw;
 }
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-   }
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+}
+
+@media screen and (max-width:769px) {
+    .card-body{
+
+    }
+    .col-md-3{
+        width: 20%;
+        height: auto;
+    }
+    .col-6{
+        width: 60%;
+        height: auto;
+    }
+}

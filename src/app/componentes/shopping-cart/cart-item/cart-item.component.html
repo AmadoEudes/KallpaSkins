@@ -1,37 +1,25 @@
-<div class="card mb-0" alt="max-width: 100%">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <div class="imaytex">
-          <img id="imagen" data-src={{cartItem.imgUrl}} class="mg-fluiid rounded-start" alt="Card image cap">
-        </div>
-        <div class="imaytex">
-          <h6 id="nombreproducto" class="card-title"><b>{{cartItem.nombre}}</b></h6>
-        </div>
+  <div class="card mb-3" style="max-width: 540px; padding: 10px;">
+    <div class="row ">
+      <div class="col-md-5">
+        <img data-src={{cartItem.imgUrl}} class="img-fluid">
       </div>
-      <div class="col-md-2">
+      <div class="col-md-7">
         <div class="card-body">
-          <p style="text-align: center;" id="preciounitario" class="card-text"><small
-              class="text-muted">{{cartItem.precio| currency:'PEN':'S/':'1.2-2'}}</small></p>
-        </div>
-      </div>
-      <div class="col-md-2">
-        <div class="card-body">
-          <form style="text-align: center;" class="form-group" name="formulario" method="post" action="/send.php">
-            <p id="preciounitario" class="card-text"><small class="text-muted">{{cartItem.cantidad}}</small></p>
-          </form>
-        </div>
-      </div>
-      <div class="col-md-2">
-        <div class="card-body">
-          <p id="subtotal" class="card-text"><small
-              class="text-muted">{{(calcularTotal()) | currency:'PEN':'S/':'1.2-2'}}</small></p>
-        </div>
-      </div>
-      <div class="col-md-1">
-        <div class="card-body">
-          <button id="btn" type="button" class="btn btn-danger" (click)="quitarCartItem()">Eliminar</button>
+          <div class="imaytex" style="display: flex; align-items: center; text-align: center;">
+            <h5 id="nombreproducto" class="card-img-top" style=""><b>{{cartItem.nombre}}</b></h5>
+          </div>
+          <div style="text-align: center; margin: 10px;">
+            <app-spin-item style="margin-right: 7px;" (cantidadInfo)="addItem($event)"></app-spin-item>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-8" style="display: flex; align-items: center; padding:5px; text-align: center;">
+              <h6 id="preciounitario" class="card-text">{{(calcularTotal()) | currency:'PEN':'S/':'1.2-2'}}</h6>
+            </div>
+            <div class="col-6 col-md-4" style="display: flex; align-items: center;  padding:5px; text-align: center;">
+              <button id="btn" type="button" class="btn btn-danger" (click)="quitarCartItem()"><i class="fas fa-trash"></i></button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  

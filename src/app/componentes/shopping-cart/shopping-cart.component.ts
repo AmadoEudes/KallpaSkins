@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CartItem } from 'src/app/models/cart-item';
 import { CartService } from './cart.service';
 import { DatePipe } from '@angular/common';
+import { AuthService } from 'src/app/services/auth/auth-service.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -9,6 +11,10 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./shopping-cart.component.css']
 })
 export class ShoppingCartComponent implements OnInit {
+
+  public User$ : Observable<any> = this.authService.afauth.user;
+  
+  mensaje = "https://wa.me/+51940447433?text="
 
   cartItems: any[] =[];
 
@@ -20,7 +26,7 @@ export class ShoppingCartComponent implements OnInit {
     // { id:4, nombre:"Pizza 4", detalles:"", precio:20, cantidad:1, imgUrl:"" }
   cartTotal = 0;
   
-  constructor(private cartService: CartService,
+  constructor(private cartService: CartService, public authService : AuthService,
               
       ) { }
   ngOnInit(): void {
@@ -38,6 +44,14 @@ export class ShoppingCartComponent implements OnInit {
       // tslint:disable-next-line: no-unused-expression
       this.removeProductTocart(this.cartItems, item_remove)
       console.log(this.cartItems);
+      },
+      
+    );
+    this.cartService.recibirDatos_cantidad().subscribe(
+      (item_cantidad: any) => {
+      // tslint:disable-next-line: no-unused-expression
+      console.log(this.calcularTotal(this.cartItems));
+      this.cartTotal = this.calcularTotal(this.cartItems);
       },
       
     );
@@ -80,60 +94,39 @@ export class ShoppingCartComponent implements OnInit {
   removeProductTocart( lista: CartItem[], item: CartItem){
     for(const i in lista){
       if(lista[i].nombre === item.nombre){
-        if(lista[i].cantidad === 1){
+        
           lista.splice(Number(i),1)
           this.cartTotal -= (item.cantidad*item.precio);
           //this.msj.enviarDatos_icono(this.cartTotal);
           break;
-        } else {
-          lista[i].cantidad-=1;
-          let aux = new CartItem(lista[i].nombre, lista[i].precio, lista[i].cantidad, lista[i].cantidadDisponible, lista[i].imgUrl);
-          lista.splice(Number(i),1)
-          this.cartTotal -= (item.cantidad*item.precio);
-          this.addProductToCart(aux);
-          break;
-        }
+       
         
       }
     }
   }
 
   enviarLista(){
-    if (this.cartItems.length != 0){
-      // tslint:disable-next-line: forin
+    let url="FranK? He aquí la lista de productos:\n";
+    console.log(this.cartItems)
+    for (let index = 0; index < this.cartItems.length; index++) {
+      console.log(this.cartItems[index])
+      url += "\n"+String(index+1)+". " + String(this.cartItems[index].nombre) +"\n"+"  Cantidad: "+ String(this.cartItems[index].cantidad) 
+      + "     Precio por unidad: S/."+String(this.cartItems[index].precio) +"\n"+"  Precio Total: "+String(this.cartItems[index].cantidad*this.cartItems[index].precio) + "\n"
       
-      //this.msj.enviarDatos_shoppingcart(this.cartItems);
-      let fecha=new Date();
-      this.cartTotal=Number(this.cartTotal.toFixed(2));
     }
-    
+    url += "\n Costo total del pedido: S/." +  String(this.cartTotal)
+    url = encodeURIComponent(url);
+    this.mensaje += url;
+    window.open(this.mensaje, '_blank');
+    console.log(this.User$)
   }
 
-  vaciarCarrito(){
-    this.cartItems = [];
-  }
 
-  enviarIconoCartTotal(){
-   //this.msj.enviarDatos_icono(this.cartTotal);
-    console.log("El total del Carrito es: " + this.cartTotal)
-  }
-  
-  enviarHistorial(){
-    console.log("Se envía el historial")
-    //this.msg.enviarHistorial(this.cartItems_historial);
-  }
-  
-  confirmarPedido(){
-    //Envía la señal para que el historial se cargue
-    //this.msg.enviarSeñal();
-    if(this.cartItems.length != 0){
-      this.showConfirm();
-    } else {
-      console.log("No seas sapo")
+  calcularTotal(lista: CartItem[]){
+    let aux = 0;
+    for (let index = 0; index < lista.length; index++) {
+      aux += (lista[index].precio*lista[index].cantidad);
     }
-  }
-
-  showConfirm(){
-    console.log("xd?")
+    return aux;
   }
 }
