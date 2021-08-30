@@ -31,10 +31,10 @@ export class AdministradorComponent implements OnInit {
   'LITTLE PETS', 'KITTEN', 'SWEET HOLDOVER']
 
   oferta : string[] = ['NO', 'OFERTAR']
-  
+
 
   constructor(private fbuilder : FormBuilder, private articuloService : ArticuloService, private toastr: ToastrService,private firebaseStorage: FirebaseStorageService) {
-  
+
     this.createArticulo = this.fbuilder.group({
       nombre : ['',Validators.required],
       cantidad : ['',Validators.required],
@@ -42,7 +42,7 @@ export class AdministradorComponent implements OnInit {
       precio : ['',Validators.required],
       imageURL : ['',Validators.required],
       oferta : ['',Validators.required],
-      descripción : [''],
+      descripcion : [''],
       offerPrice : ['']
     })
   }
@@ -66,11 +66,11 @@ export class AdministradorComponent implements OnInit {
     const Articulo : any = {
       nombre : this.createArticulo.value.nombre,
       cantidad : this.createArticulo.value.cantidad,
-      Categoria : this.createArticulo.value.Categoria,
+      categoria : this.createArticulo.value.Categoria,
       precio : this.createArticulo.value.precio,
       imageURL : this.createArticulo.value.imageURL,
       oferta : this.createArticulo.value.oferta,
-      descripción : this.createArticulo.value.descripción,
+      descripcion : this.createArticulo.value.descripcion,
       offerPrice : this.createArticulo.value.offerPrice,
       created_at : new Date(),
       upload_at : new Date()
@@ -135,10 +135,10 @@ export class AdministradorComponent implements OnInit {
       })
       )
       .subscribe();
-      
+
     referencia.getDownloadURL().subscribe((URL) => {
       this.articulo.imageURL = URL;
-      
+
     });
     console.log(this.URLPublica)
   }

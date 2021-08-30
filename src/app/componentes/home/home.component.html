@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,46 +8,46 @@
     <title>Document</title>
 </head>
 
-    <div class="container-flex">
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+<div class="container-flex">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <!--Dimension de la imagen 1920x650-->
+                <img src="https://firebasestorage.googleapis.com/v0/b/kallpaskins.appspot.com/o/Carousel%2FLogoKallpaSkins.jpg?alt=media&token=19a80ecb-d11e-407f-b2ce-2f22354fae63" class="d-block w-100" alt="...">
             </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <!--Dimension de la imagen 1920x650-->
-                    <img src="https://firebasestorage.googleapis.com/v0/b/kallpaskins.appspot.com/o/Carousel%2FLogoKallpaSkins.jpg?alt=media&token=19a80ecb-d11e-407f-b2ce-2f22354fae63" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://dungeonmarvels.com/modules/ishislider/views/img/460d238960d233e5dcc8be95e1bfd9e8ec5df641_slider_24062021.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://dungeonmarvels.com/modules/ishislider/views/img/36520cce284a670c36437e652c8f859e88d786f3_slider11062021.jpg" class="d-block w-100" alt="...">
-                </div>
+            <div class="carousel-item">
+                <img src="https://dungeonmarvels.com/modules/ishislider/views/img/460d238960d233e5dcc8be95e1bfd9e8ec5df641_slider_24062021.jpg" class="d-block w-100" alt="...">
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <div class="carousel-item">
+                <img src="https://dungeonmarvels.com/modules/ishislider/views/img/36520cce284a670c36437e652c8f859e88d786f3_slider11062021.jpg" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
+    </div>
+</div>
+<div class="container" style="background-color: white; margin-top: 0px; padding-left: 2%; padding-right: 2%; margin-bottom: 20px;">
+    <div class="d-flex align-items-center">
+        <div style="margin-top: 20px; margin-bottom: 10px; text-align: center;">
+            <h3 style="text-align: center;"><b>Productos principales</b></h3>
         </div>
     </div>
-    <div class="container" style="background-color: white; margin-top: 0px; padding-left: 2%; padding-right: 2%; margin-bottom: 20px;">
-        <div class="d-flex align-items-center" style="">
-            <div style="margin-top: 20px; margin-bottom: 10px; text-align: center;">
-                <h3 style="text-align: center;"><b>Productos principales</b></h3>
-            </div>
-        </div>
-        <div class="row align-items-center;" style="margin: 0px; padding-bottom: 40px;">
-            <div class="col-md-3" style="padding-top: 0px;"  *ngFor="let item of items | async">
-                <app-product-item [articulo]="item"></app-product-item>
-            </div>
+    <div class="row align-items-center;" style="margin: 0px; padding-bottom: 40px;">
+        <div class="col-md-3" style="padding-top: 0px;" *ngFor="let item of items | async">
+            <app-product-item [articulo]="item"></app-product-item>
         </div>
     </div>
-    <app-shopping-cart></app-shopping-cart>
+</div>
+
 </html>
