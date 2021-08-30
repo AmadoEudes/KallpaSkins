@@ -20,11 +20,27 @@ export class ShoppingCartComponent implements OnInit {
     // { id:4, nombre:"Pizza 4", detalles:"", precio:20, cantidad:1, imgUrl:"" }
   cartTotal = 0;
   
-  constructor(private msj: CartService,
+  constructor(private cartService: CartService,
               
       ) { }
   ngOnInit(): void {
-    
+    this.cartService.recibirDatos().subscribe(
+      (item: any) => {
+      // tslint:disable-next-line: no-unused-expression
+      this.addProductToCart(item)
+      console.log(this.cartItems);
+      },
+      
+    );
+
+    this.cartService.recibirDatos_remove().subscribe(
+      (item_remove: any) => {
+      // tslint:disable-next-line: no-unused-expression
+      this.removeProductTocart(this.cartItems, item_remove)
+      console.log(this.cartItems);
+      },
+      
+    );
 
   }
 
@@ -33,6 +49,11 @@ export class ShoppingCartComponent implements OnInit {
     let productExists = false;
     for(let i in this.cartItems){
       if(this.cartItems[i].nombre === item.nombre){
+        if(this.cartItems[i].cantidad === item.cantidadDisponible){
+          productExists = true;
+          console.log("No hay más")
+          break;
+        }
         this.cartItems[i].cantidad+=1;
         productExists = true;
         break;
@@ -44,6 +65,7 @@ export class ShoppingCartComponent implements OnInit {
         nombre: item.nombre,
         precio: item.precio,
         cantidad: item.cantidad,
+        cantidadDisponible: item.cantidadDisponible,
         imgUrl: item.imgUrl,
       });
     }
@@ -51,17 +73,27 @@ export class ShoppingCartComponent implements OnInit {
     this.cartTotal = 0;
     this.cartItems.forEach(cartItem => {
       this.cartTotal += (cartItem.cantidad * cartItem.precio);
-      this.msj.enviarDatos_icono(this.cartTotal);
+      //this.msj.enviarDatos_icono(this.cartTotal);
     });
   }
 
   removeProductTocart( lista: CartItem[], item: CartItem){
     for(const i in lista){
       if(lista[i].nombre === item.nombre){
-        lista.splice(Number(i),1)
-        this.cartTotal -= (item.cantidad*item.precio);
-        this.msj.enviarDatos_icono(this.cartTotal);
-        break;
+        if(lista[i].cantidad === 1){
+          lista.splice(Number(i),1)
+          this.cartTotal -= (item.cantidad*item.precio);
+          //this.msj.enviarDatos_icono(this.cartTotal);
+          break;
+        } else {
+          lista[i].cantidad-=1;
+          let aux = new CartItem(lista[i].nombre, lista[i].precio, lista[i].cantidad, lista[i].cantidadDisponible, lista[i].imgUrl);
+          lista.splice(Number(i),1)
+          this.cartTotal -= (item.cantidad*item.precio);
+          this.addProductToCart(aux);
+          break;
+        }
+        
       }
     }
   }
@@ -70,7 +102,7 @@ export class ShoppingCartComponent implements OnInit {
     if (this.cartItems.length != 0){
       // tslint:disable-next-line: forin
       
-      this.msj.enviarDatos_shoppingcart(this.cartItems);
+      //this.msj.enviarDatos_shoppingcart(this.cartItems);
       let fecha=new Date();
       this.cartTotal=Number(this.cartTotal.toFixed(2));
     }
@@ -82,7 +114,7 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   enviarIconoCartTotal(){
-    this.msj.enviarDatos_icono(this.cartTotal);
+   //this.msj.enviarDatos_icono(this.cartTotal);
     console.log("El total del Carrito es: " + this.cartTotal)
   }
   

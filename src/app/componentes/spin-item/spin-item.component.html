@@ -1,28 +1,28 @@
-<div style="display: inline-block; background: rgb(238, 238, 238); border-radius: 5px; border: solid silver 1px;">
+<div class="grid" style="display: inline-block; border-radius: 20px; border: solid rgb(135, 135, 135) 1px; ">
     <!--btn --->
-    <label class=" quantity-wrapper" style="background: cornflowerblue; border: solid silver 1px;
-    border-radius: 5px 0px 0px 5px;">
+    <label class="g-col quantity-wrapper" style="border: none;
+    border-radius: 20px 0px 0px 20px;">
         <label>
-    <button type="button" class="btn" data-type="minus"  (click)="handleMinus()">
-      <i class="fas fa-minus text-light"></i>
-    </button>
-    </label>
+          <button type="button" class="btn" data-type="minus"  (click)="handleMinus()" (click)="addNewItem(newItem.value)">
+            <i class="fal fa-minus" style="color: rgb(135, 135, 135);"></i>
+          </button>
+        </label>
 
     </label>
     <!--input-->
-    <label class="inpt" style="background:rgb(238, 238, 238) ;">
+    <label class="g-col inpt" style="border: none">
         <label>
-    <input readonly type="text" name="quant[2]" class="form-control" value="1" [(ngModel)]="value" min="0" max="15" style="background: rgb(238, 238, 238);
-    border: none; font-size: 15px;">
+    <input readonly type="text" name="quant[2]" class="rastroClick form-control border-0" value="1" [(ngModel)]="value" min="0" max="15" style="background: rgb(255, 254, 254);
+    border: none; outline:none; font-size: 15px; " #newItem>
     </label>
     </label>
 
     <!--btn +-->
-    <label class="quantity-wrapper" style="background: cornflowerblue; border: solid 1px silver;;
-    border-radius: 0px 5px 5px 0px;">
+    <label class="g-col quantity-wrapper" style=" border: none;
+    border-radius: 0px 20px 20px 0px;">
       <label>
-        <button type="button" class="btn  " data-type="plus" data-field="quant[2]" (click)="handlePlus()">
-          <i class="fas fa-plus text-light"></i>
+        <button type="button"  class="btn  " data-type="plus" data-field="quant[2]" (click)="handlePlus()" (click)="addNewItem(newItem.value)">
+          <i class="fal fa-plus " style="color: rgb(135, 135, 135);"></i>
         </button>
         </label>
     </label>

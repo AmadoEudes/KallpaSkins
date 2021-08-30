@@ -10,7 +10,7 @@ import { CartService } from '../cart.service';
 export class CartItemComponent implements OnInit {
   @Input() cartItem!: CartItem;
 
-  constructor(private msj: CartService) { 
+  constructor(private cartService: CartService) { 
     // this.cartItem = new CartItem(cartitem.id, cartitem.nombre, cartitem.detalles, cartitem.precio, cartitem.cantidad, cartitem.imgUrl);
   }
 
@@ -19,9 +19,10 @@ export class CartItemComponent implements OnInit {
   
   quitarCartItem(){
 
-    this.cartItem = new CartItem(this.cartItem.nombre, this.cartItem.precio, this.cartItem.cantidad, this.cartItem.imgUrl);
+    this.cartItem = new CartItem(this.cartItem.nombre, this.cartItem.precio, this.cartItem.cantidad, this.cartItem.cantidadDisponible, this.cartItem.imgUrl);
     
-    this.msj.enviarDatos_remove(this.cartItem);
+    this.cartService.enviarDatos_remove(this.cartItem);
+    console.log("Enviado")
 
 
   }

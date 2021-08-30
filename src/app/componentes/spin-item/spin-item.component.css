@@ -9,5 +9,14 @@
 }
 
 .inpt {
-    width: 50px;
+    width: 40px;
+}
+
+.rastroClick{
+    border: none;
+}
+.rastroClick:focus{
+    
+    border: none;
+    outline: 20px;
 }
