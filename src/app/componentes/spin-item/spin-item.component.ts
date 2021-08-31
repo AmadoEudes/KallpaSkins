@@ -7,12 +7,14 @@ import { Component, OnInit, VERSION } from '@angular/core';
 })
 export class SpinItemComponent implements OnInit {
 
-  constructor() { }
+
+  constructor() {
+
+  }
 
   ngOnInit(): void {
   }
 
-  name = 'Angular ' + VERSION.major;
   value = 1;
 
   handleMinus() {

@@ -35,7 +35,7 @@
                             <li><a class="dropdown-item" href="#">CUTE</a></li>
                             <li><a class="dropdown-item" href="#">LTTLE PETS</a></li>
                             <li><a class="dropdown-item" href="#">KITTEN</a></li>
-                            <li><a class="dropdown-item" href="#">SWEET HOLDOVER</a></li>
+                            <li><a class="dropdown-item" href="#">SWEET HOLDOVER </a></li>
                         </ul>
                     </li>
                     <li *ngIf="User$ | async as admin">
@@ -49,7 +49,7 @@
                 <ul>
                     <li class="nav-item navbar-nav">
                         <!--carrito de compras-->
-                        <a type="button" class="position-relative" data-bs-toggle="modal" href="#carrito">
+                        <a type="button" class="position-relative" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                             <a class="nav-link"><i class="fad fa-shopping-cart fa-xl"></i></a>
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                               99+
@@ -61,12 +61,27 @@
                 <ul class="d-flex navbar-dark" style="padding-right: 30px;" *ngIf="User$ | async as user; else login">
 
                     <li *ngIf="user" class="nav-item navbar-nav">
-                        <a class="nav-link" style="color: whitesmoke;" routerLink="/" routerLinkActive="active"> <i class="fas fa-user"></i> {{user['email']}}
-                        </a>
+                        <div class="dropdown">
+                            <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <i class="fas fa-user"></i> {{user['email']}}
+                            </a>
+                            <ul class="dropdown-menu " style="background: #ff7900;" aria-labelledby="navbarDropdown">
+                                <div class="card mx-5 p-5" style="background: none; border: none;">
+                                    <div class="card-body" style="height: 70px; width: 70px;">
+                                        <img [src]="'' == '' ? '../../assets/profile_default.jpg' : ''" alt="profile" width="70px" height="70px">
+                                    </div>
+                                </div>
+                                <li>
+                                    <a class="dropdown-item " routerLink="/login" (click)="logOut()">Cerra Sesión </a>
+                                </li>
+
+                            </ul>
+                        </div>
+
                     </li>
                     <li *ngIf="user" class="nav-item navbar-nav">
                         <a class="nav-link" style="color: whitesmoke;" routerLink="/login" routerLinkActive="active" (click)="logOut()"> <strong style="color: rgba(255, 173, 173, 0.918);"><i class="fas fa-sign-out-alt mx-2"></i> LogOut</strong>
                         </a>
+
                     </li>
                 </ul>
                 <ng-template #login>

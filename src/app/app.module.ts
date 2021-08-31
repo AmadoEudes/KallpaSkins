@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from "../environments/environment";
@@ -32,6 +32,8 @@ import { ShoppingCartComponent } from './componentes/shopping-cart/shopping-cart
 import { ProductItemComponent } from './componentes/home/product-item/product-item.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { CartItemComponent } from './componentes/shopping-cart/cart-item/cart-item.component';
+import { ViewUserComponent } from './componentes/usuario/view-user/view-user.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
 @NgModule({
@@ -50,6 +52,7 @@ import { CartItemComponent } from './componentes/shopping-cart/cart-item/cart-it
     ShoppingCartComponent,
     FooterComponent,
     CartItemComponent,
+    ViewUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +66,8 @@ import { CartItemComponent } from './componentes/shopping-cart/cart-item/cart-it
     AngularFireAuthModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    NgParticlesModule
+    NgParticlesModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [UserServicesService, AuthService ],
   bootstrap: [AppComponent]

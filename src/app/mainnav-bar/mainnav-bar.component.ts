@@ -1,3 +1,4 @@
+
 import { AuthService } from './../services/auth/auth-service.service';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -21,12 +22,17 @@ export class MainnavBarComponent {
   username : any = '';
   public User$ : Observable<any> = this.authService.afauth.user;
 
-  constructor (public authService : AuthService, private router : Router) {  }
+
+
+  constructor (public authService : AuthService, private router : Router) { }
+
 
 
   logOut(): void{
     this.authService.logOut();
     this.router.navigate(["/home"])
   }
+
+
 
 }

@@ -37,3 +37,13 @@ button[type=button]::before {
     border: none;
     outline: none;
 }
+
+input[type=text] {
+    padding: .375rem .75rem;
+    width: 50px;
+}
+
+input[type=text] {
+    border: none;
+    outline: none;
+}

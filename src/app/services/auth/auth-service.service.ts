@@ -38,4 +38,13 @@ export class AuthService {
   async getCurrentUser(){
     return await this.afauth.authState.pipe(first()).toPromise()
   }
+
+  async resetPassword(email:string):Promise<void>{
+    try {
+      return this.afauth.sendPasswordResetEmail(email)
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
 }
