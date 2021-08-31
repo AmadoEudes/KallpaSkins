@@ -21,12 +21,26 @@ export class LoginComponent {
   })
 
   constructor(private authService : AuthService) { }
+  isUser: Boolean = false;
+
+  async userExist(){
+    const user = await this.authService.getCurrentUser();
+    if(user){
+      this.isUser = true;
+      console.log(this.isUser);
+    }else{
+      this.isUser = false;
+      console.log(this.isUser)
+    }
+  }
 
   ngOnInit(): void {
+  this.userExist();
   }
 
   onLogin(){
     const {email, password} = this.loginForm.value;
     this.authService.login(email, password)
+    
   }
 }

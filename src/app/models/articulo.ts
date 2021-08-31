@@ -7,5 +7,6 @@ export interface Articulo{
   imageURL : string;
   oferta : '';
   descripcion : string;
-  offer : number;
+  offerPrice : number;
+  
 }

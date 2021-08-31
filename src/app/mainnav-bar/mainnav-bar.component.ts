@@ -1,14 +1,17 @@
 import { AuthService } from './../services/auth/auth-service.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { CartService } from '../componentes/shopping-cart/cart.service';
 
 @Component({
   selector: 'app-mainnav-bar',
   templateUrl: './mainnav-bar.component.html',
   styleUrls: ['./mainnav-bar.component.css']
 })
-export class MainnavBarComponent {
+export class MainnavBarComponent implements OnInit {
+
+  cartIconValue: number= 0;
 
   categorias : string[] = ['FIBRA CARBONO', 'CUERO', 'FROSTED GLITTER', 'CAMUFLAJE',
   'TEXTURA', 'MÁRMOL', 'ASTRONAUTA', 'FRASES', 'CUTE',
@@ -21,12 +24,48 @@ export class MainnavBarComponent {
   username : any = '';
   public User$ : Observable<any> = this.authService.afauth.user;
 
-  constructor (public authService : AuthService, private router : Router) {  }
+  constructor (public authService : AuthService, private router : Router, private cartService: CartService) {  }
+
+
+  isUser: Boolean = false;
+
+  async userExist(){
+    const user = await this.authService.getCurrentUser();
+    if(user){
+      this.isUser = true;
+      console.log(this.isUser);
+    }else{
+      this.isUser = false;
+      console.log(this.isUser)
+    }
+  }
+
+  ngOnInit(): void {
+    this.cartService.recibirDatos_cartIconUp().subscribe(
+      (item: any) => {
+        this.cartIconValue+=1;
+      },
+    );
+    this.cartService.recibirDatos_cartIconDown().subscribe(
+      (item: any) => {
+      this.cartIconValue-=1;
+      },
+    );
+    this.cartService.recibirDatos_cartIconRefresh().subscribe(
+      (item: any) => {
+      this.cartIconValue = 0;
+      },
+    );
+  }
 
 
   logOut(): void{
     this.authService.logOut();
-    this.router.navigate(["/home"])
+    this.router.navigate(["/login"])
+  }
+  verificarLogin(){
+    this.userExist()
+    this.cartService.enviarDatos_userVerify(this.isUser);
   }
 
 }

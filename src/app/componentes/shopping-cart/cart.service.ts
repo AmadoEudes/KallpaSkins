@@ -12,8 +12,14 @@ export class CartService{
     subject_remove = new Subject();
     subject_cantidad = new Subject();
 
+    subject_cartIconUp = new Subject();
+    subject_cartIconDown = new Subject();
 
+    subject_cartIconRefresh = new Subject();
 
+    subject_productDetails = new Subject();
+
+    subject_userVerify = new Subject();
 
     constructor(){}
 
@@ -45,5 +51,51 @@ export class CartService{
     // tslint:disable-next-line: typedef
     recibirDatos_cantidad(){
         return this.subject_cantidad.asObservable();
+    }
+
+    // tslint:disable-next-line: typedef
+    enviarDatos_cartIconUp(item: unknown){
+        // console.log(item)
+        this.subject_cartIconUp.next(item)
+    }
+    // tslint:disable-next-line: typedef
+    recibirDatos_cartIconUp(){
+        return this.subject_cartIconUp.asObservable();
+    }
+    // tslint:disable-next-line: typedef
+    enviarDatos_cartIconDown(item: unknown){
+        // console.log(item)
+        this.subject_cartIconDown.next(item)
+    }
+    // tslint:disable-next-line: typedef
+    recibirDatos_cartIconDown(){
+        return this.subject_cartIconDown.asObservable();
+    }
+
+    enviarDatos_cartIconRefresh(item: unknown){
+        // console.log(item)
+        this.subject_cartIconRefresh.next(item)
+    }
+    // tslint:disable-next-line: typedef
+    recibirDatos_cartIconRefresh(){
+        return this.subject_cartIconRefresh.asObservable();
+    }
+
+    enviarDatos_productDetails(item: unknown){
+        // console.log(item)
+        this.subject_productDetails.next(item)
+    }
+    // tslint:disable-next-line: typedef
+    recibirDatos_productDetails(){
+        return this.subject_productDetails.asObservable();
+    }
+
+    enviarDatos_userVerify(item: unknown){
+        // console.log(item)
+        this.subject_userVerify.next(item)
+    }
+    // tslint:disable-next-line: typedef
+    recibirDatos_userVerify(){
+        return this.subject_userVerify.asObservable();
     }
 }

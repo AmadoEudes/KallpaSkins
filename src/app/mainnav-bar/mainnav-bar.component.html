@@ -49,16 +49,11 @@
                 <ul>
                     <li class="nav-item navbar-nav">
                         <!--carrito de compras-->
-                        <a class="position-relative" type="button" data-bs-toggle="offcanvas" href="#shoppingcart">
-                            
-
-                            <a class="nav-link"><i class="fad fa-shopping-cart fa-xl">
-                                
-                            </i>
-                            </a>
+                        <a class="position-relative" type="button" data-bs-toggle="offcanvas" href="#shoppingcart" (click)="verificarLogin()">
+                            <a class="nav-link"><i class="fad fa-shopping-cart fa-xl"></i></a>
                             <span class="position-absolute top-1 start-100 translate-middle badge rounded-pill bg-danger">
-                                12
-                                <span class="visually-hidden">unread messages</span>
+                                {{this.cartIconValue}}
+                                <span class="visually-hidden">Productos</span>
                             </span>
                         </a>
                     </li>

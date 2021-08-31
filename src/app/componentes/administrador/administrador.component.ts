@@ -22,7 +22,7 @@ export class AdministradorComponent implements OnInit {
   imageURL : '',
   oferta : '',
   descripcion : '',
-  offer : 0
+  offerPrice : 0
   }
 
   // lista de categoria
@@ -90,7 +90,7 @@ export class AdministradorComponent implements OnInit {
     this.articulo.oferta = '';
     this.articulo.imageURL = '';
     this.articulo.descripcion = '';
-    this.articulo.offer = 0;
+    this.articulo.offerPrice = 0;
     this.submitted = false
 
   }

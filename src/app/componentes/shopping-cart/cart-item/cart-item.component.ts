@@ -22,10 +22,10 @@ export class CartItemComponent implements OnInit {
   
   quitarCartItem(){
 
-    this.cartItem = new CartItem(this.cartItem.nombre, this.cartItem.precio, this.cartItem.cantidad, this.cartItem.cantidadDisponible, this.cartItem.imgUrl);
+    this.cartItem = new CartItem(this.cartItem.nombre, this.cartItem.precio, this.cartItem.precioOferta, this.cartItem.cantidad, this.cartItem.cantidadDisponible, this.cartItem.imgUrl);
     
     this.cartService.enviarDatos_remove(this.cartItem);
-    console.log("Enviado")
+    
 
 
   }

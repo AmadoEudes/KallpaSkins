@@ -32,6 +32,7 @@ import { ShoppingCartComponent } from './componentes/shopping-cart/shopping-cart
 import { ProductItemComponent } from './componentes/home/product-item/product-item.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { CartItemComponent } from './componentes/shopping-cart/cart-item/cart-item.component';
+import { ProductItemDetailsComponent } from './componentes/home/product-item-details/product-item-details.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { CartItemComponent } from './componentes/shopping-cart/cart-item/cart-it
     ShoppingCartComponent,
     FooterComponent,
     CartItemComponent,
+    ProductItemDetailsComponent,
   ],
   imports: [
     BrowserModule,
