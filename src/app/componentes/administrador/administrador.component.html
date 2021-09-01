@@ -110,6 +110,10 @@
             <div class="card-body" style="background: none;">
                 <!--debajo modelo de vista previa-->
                 <div class="card mb-3 shadow-lg" style="border-radius: 15px;">
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger p-2" style="margin-left: -25px;" *ngIf="createArticulo.controls.oferta.value == 'OFERTAR'">
+                    OFERTA!
+                    <span class="visually-hidden">unread messages</span>
+                    </span>
                     <img [src]="articulo.imageURL  == '' ? '/assets/default-image.png' : articulo.imageURL" alt="Article" class="card-img-top" style="width: 370px; height: 400px;">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-text d-flex justify-content-center mb-1"> <strong style="font-family:Arial, Helvetica, sans-serif;">{{articulo.nombre == "" ? 'ESCRIBE NOMBRE DEL ARTICULO' : articulo.nombre}} </strong></h5>

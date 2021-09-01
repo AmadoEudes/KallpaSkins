@@ -1,3 +1,4 @@
+import { FirebaseStorageService } from 'src/app/services/firebase-storage.service';
 import { Router, ActivatedRoute } from "@angular/router";
 import { Component, OnInit } from '@angular/core';
 
@@ -12,13 +13,42 @@ import { Observable } from "rxjs";
 })
 export class HomeComponent implements OnInit {
 
-  items : Observable<any[]>;
+  items : any[] = [];
 
-  constructor(firestore: AngularFirestore) {
-    this.items = firestore.collection("articulos").valueChanges();
+  constructor( private firestore: AngularFirestore,private firebaseStorageService : FirebaseStorageService) {
+
   }
 
   ngOnInit(): void {
+    this.getProductos()
+    this.getUsers()
+  }
+
+  getUsers(){
+    let users: any[] = [];
+    this.firebaseStorageService.getUsers().subscribe( data =>{
+      data.forEach((element:any) => {
+        users.push({
+          id: element.payload.doc.id,
+          ...element.payload.doc.data(),
+        })
+      });
+      localStorage.setItem('KIob3kZW_INfo', JSON.stringify(users))
+    })
+  }
+
+  getProductos(){
+    this.firebaseStorageService.getProducts().subscribe(data =>{
+      this.items = [];
+      data.forEach((element:any) => {
+
+        this.items.push({
+          id: element.payload.doc.id,
+          ...element.payload.doc.data()
+        });
+      });
+      localStorage.setItem('products',JSON.stringify(this.items))
+    })
   }
 
 }

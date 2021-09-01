@@ -62,16 +62,17 @@
 
                     <li *ngIf="user" class="nav-item navbar-nav">
                         <div class="dropdown">
-                            <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <i class="fas fa-user"></i> {{user['email']}}
+                            <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <i class="fas fa-user"></i> {{user['displayName'] == null ? user['email'] : user['displayName']}}
                             </a>
-                            <ul class="dropdown-menu " style="background: #ff7900;" aria-labelledby="navbarDropdown">
-                                <div class="card mx-5 p-5" style="background: none; border: none;">
-                                    <div class="card-body" style="height: 70px; width: 70px;">
-                                        <img [src]="'' == '' ? '../../assets/profile_default.jpg' : ''" alt="profile" width="70px" height="70px">
+                            <ul class="dropdown-menu " style="background: #a2e1f1;" aria-labelledby="navbarDropdown">
+
+                                <div class="card " style="background: none; border: none; ">
+                                    <div class="card-body" style="height: 100px; width: 180px;  text-align: center;">
+                                        <img [src]="user['photoURL'] == null ? '../../assets/profile_default.jpg' : user['photoURL']" alt="profile" width="70px" height="70px" style="border-radius: 40px;">
                                     </div>
                                 </div>
                                 <li>
-                                    <a class="dropdown-item " routerLink="/login" (click)="logOut()">Cerra Sesión </a>
+                                    <a class="dropdown-item " routerLink="/login" (click)="logOut()" style="align-self: center;">Cerrar Sesión <i class="fad fa-sign-out"></i></a>
                                 </li>
 
                             </ul>

@@ -23,26 +23,51 @@ export class LoginComponent {
 
   correo:string = ""
 
-  constructor(private authService : AuthService) { }
+  constructor(private authService : AuthService, private router : Router) { }
 
   ngOnInit(): void {
   }
 
-  onLogin(){
+  async onLogin(){
     const {email, password} = this.loginForm.value;
-    this.authService.login(email, password)
+    await this.authService.login(email, password)
+    localStorage.setItem('user',  JSON.stringify(await this.authService.getCurrentUser()))
   }
-  message =  Swal.fire({
-    position: 'top-end',
-    icon: 'success',
-    title: 'Your work has been saved',
+
+  Toast = Swal.mixin({
+    toast: true,
+    position: 'bottom-end',
     showConfirmButton: false,
-    timer: 1500
+    timer: 3000,
+    timerProgressBar: true,
+
   })
 
+
+  messageLauch(ico: any, title: string){
+    this.Toast.fire({
+      icon: ico,
+      title: title
+    })
+  }
+
   async resetPass(){
-    await this.authService.resetPassword(this.correo);
-    window.alert('Se envió el correo de reestablecimiento, con éxito!');
+    if(this.correo.length > 0){
+      await this.authService.resetPassword(this.correo);
+    this.messageLauch('success', 'Se envió el correo de reestablecimiento, con éxito!');
+    }else{
+      this.messageLauch('error', 'escribe tu correo')
+    }
+  }
+
+  async googleSignin(){
+    try {
+      await this.authService.loginGoogle()
+      this.router.navigate(['/home'])
+      localStorage.setItem('user',  JSON.stringify(await this.authService.getCurrentUser()))
+    } catch (error) {
+      console.log(error)
+    }
   }
 
 }

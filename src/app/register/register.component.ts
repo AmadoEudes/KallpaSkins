@@ -119,9 +119,7 @@ export class RegisterComponent implements OnInit {
             this.id_provincia = this.provincias[i].id
             break;
           }
-
         }
-
       }
     }
 
@@ -134,8 +132,5 @@ export class RegisterComponent implements OnInit {
       }
     }
   }
-
-
-
 
 }

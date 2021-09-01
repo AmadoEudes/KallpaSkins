@@ -1,3 +1,4 @@
+import { FirebaseStorageService } from 'src/app/services/firebase-storage.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule} from '@angular/common/http';
@@ -36,6 +37,8 @@ import { ViewUserComponent } from './componentes/usuario/view-user/view-user.com
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +55,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     ShoppingCartComponent,
     FooterComponent,
     CartItemComponent,
-    ViewUserComponent,
+    ViewUserComponent
   ],
   imports: [
     BrowserModule,
