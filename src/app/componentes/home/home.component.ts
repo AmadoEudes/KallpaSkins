@@ -5,6 +5,8 @@ import { UserServicesService } from "../../services/user-services.service";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { Observable } from "rxjs";
 import { AuthService } from "src/app/services/auth/auth-service.service";
+import { FirebaseStorageService } from "src/app/services/firebase-storage.service";
+import { elementEventFullName } from "@angular/compiler/src/view_compiler/view_compiler";
 
 @Component({
   selector: 'app-home',
@@ -13,10 +15,10 @@ import { AuthService } from "src/app/services/auth/auth-service.service";
 })
 export class HomeComponent implements OnInit {
 
-  items : Observable<any[]>;
+  items : any[] = [];
 
-  constructor(firestore: AngularFirestore, public authService : AuthService) {
-    this.items = firestore.collection("articulos").valueChanges();
+  constructor(public firestore: AngularFirestore, public authService : AuthService, private firebaseStorageService: FirebaseStorageService) {
+    //this.items = firestore.collection("articulos").valueChanges();
   }
 
   isUser: Boolean = false;
@@ -33,6 +35,21 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.userExist();
+    this.getProducts()
   }
 
+  getProducts(){
+    this.firebaseStorageService.getProducts().subscribe(data => {
+      this.items = [];
+      data.forEach((element:any)=>{
+        /*console.log(element.payload.doc.id);*/
+        /*console.log(element.payload.doc.data());*/
+        this.items.push({
+          id: element.payload.doc.id,
+          ...element.payload.doc.data()
+        })
+      })
+      console.log(this.items)
+    })
+  }
 }

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<div class="container" style="background-color: white; margin-top: 0px; padding-left: 2%; padding-right: 2%; margin-bottom: 20px;">
+    <div class="d-flex justify-content-center" style="align-content: center; text-align: center;">
+        <div style="margin-top: 20px; margin-bottom: 10px; text-align: center;">
+            <h3 style="text-align: center;"><b>{{aux}}</b></h3>
+        </div>
+    </div>
+    <div class="container" style="align-content: center; padding-left: 20px;">
+        <div class="row align-items-center " style="margin: 0px; padding-bottom: 40px">
+            <div class="col col-md-3" style="padding-top: 0px;  width: auto" *ngFor="let item of items">
+                <app-product-item [articulo]="item"></app-product-item>
+            </div>
+        </div>
+    </div>
+    <app-product-item-details></app-product-item-details>
+</div>
+
+</html>

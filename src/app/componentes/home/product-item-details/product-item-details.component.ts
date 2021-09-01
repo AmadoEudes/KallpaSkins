@@ -9,7 +9,7 @@ import { CartService } from '../../shopping-cart/cart.service';
   styleUrls: ['./product-item-details.component.css']
 })
 export class ProductItemDetailsComponent implements OnInit {
-  product= new Product("",0,"",0,"","","",0);
+  product= new Product("", "",0,"",0,"", "","","",0);
   
   constructor(private cartService: CartService) { }
 
@@ -25,11 +25,13 @@ export class ProductItemDetailsComponent implements OnInit {
   }
 
   cargarProducto(item: Product){
+    this.product.id = item.id;
     this.product.nombre = item.nombre;
     this.product.cantidad = item.cantidad;
     this.product.categoria = item.categoria;
     this.product.precio = item.precio;
     this.product.imageURL = item.imageURL;
+    this.product.imageName = item.imageName;
     this.product.oferta = item.oferta;
     this.product.descripcion = item.descripcion;
     this.product.offerPrice = item.offerPrice;

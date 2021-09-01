@@ -17,25 +17,25 @@
                         <a class="nav-link active" aria-current="page" routerLink="home"> <i class="fas fa-home"></i> HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-badge-percent"></i> OFERTAS </a>
+                        <a class="nav-link" routerLink="offers"><i class="fas fa-badge-percent"></i> OFERTAS </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link " id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Skins por Categoria <i class="fas fa-mobile"></i>
                         </a>
                         <ul class="dropdown-menu " style="background: #ff7900;" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item " href="#">FIBRA CARBONO</a></li>
-                            <li><a class="dropdown-item" href="#">CUERO</a></li>
-                            <li><a class="dropdown-item" href="#">FROSTED GLITTER</a></li>
-                            <li><a class="dropdown-item" href="#">CAMUFLAGE</a></li>
-                            <li><a class="dropdown-item" href="#">TEXTURA</a></li>
-                            <li><a class="dropdown-item" href="#">MÁRMOL</a></li>
-                            <li><a class="dropdown-item" href="#">ASTRONAUTA</a></li>
-                            <li><a class="dropdown-item" href="#">FRASES</a></li>
-                            <li><a class="dropdown-item" href="#">CUTE</a></li>
-                            <li><a class="dropdown-item" href="#">LTTLE PETS</a></li>
-                            <li><a class="dropdown-item" href="#">KITTEN</a></li>
-                            <li><a class="dropdown-item" href="#">SWEET HOLDOVER</a></li>
+                            <li><a class="dropdown-item" id="categories" [routerLink]="['/categories/FIBRA CARBONO']">FIBRA CARBONO</a></li>
+                            <li><a class="dropdown-item" id="categories" [routerLink]="['/CUERO']" (click)="sendCategory('CUERO')">CUERO</a></li>
+                            <li><a class="dropdown-item" id="categories" [routerLink]="['/FROSTED GLITTER']" (click)="sendCategory('FROSTED GLITTER')" >FROSTED GLITTER</a></li>
+                            <li><a class="dropdown-item" id="categories" [routerLink]="['/CAMUFLAGE']">CAMUFLAGE</a></li>
+                            <li><a class="dropdown-item" id="categories" [routerLink]="['/TEXTURA']">TEXTURA</a></li>
+                            <li><a class="dropdown-item" id="categories" [routerLink]="['/MÁRMOL']">MÁRMOL</a></li>
+                            <li><a class="dropdown-item" id="categories" [routerLink]="['/ASTRONAUTA']">ASTRONAUTA</a></li>
+                            <li><a class="dropdown-item" id="categories" [routerLink]="['/FRASES']">FRASES</a></li>
+                            <li><a class="dropdown-item" id="categories" [routerLink]="['/CUTE']">CUTE</a></li>
+                            <li><a class="dropdown-item" id="categories" [routerLink]="['/LITTLE PETS']">LITTLE PETS</a></li>
+                            <li><a class="dropdown-item" id="categories" [routerLink]="['/KITTEN']">KITTEN</a></li>
+                            <li><a class="dropdown-item" id="categories" [routerLink]="['/SWEET HOLDOVER']">SWEET HOLDOVER</a></li>
                         </ul>
                     </li>
                     <li *ngIf="User$ | async as admin">

@@ -19,7 +19,11 @@ export class CartService{
 
     subject_productDetails = new Subject();
 
+    subject_editProduct = new Subject();
+
     subject_userVerify = new Subject();
+
+    subject_categories = new Subject();
 
     constructor(){}
 
@@ -97,5 +101,23 @@ export class CartService{
     // tslint:disable-next-line: typedef
     recibirDatos_userVerify(){
         return this.subject_userVerify.asObservable();
+    }
+
+    enviarDatos_editProduct(item: unknown){
+        // console.log(item)
+        this.subject_editProduct.next(item)
+    }
+    // tslint:disable-next-line: typedef
+    recibirDatos_editProduct(){
+        return this.subject_editProduct.asObservable();
+    }
+
+    enviarDatos_categories(item: unknown){
+        // console.log(item)
+        this.subject_categories.next(item)
+    }
+    // tslint:disable-next-line: typedef
+    recibirDatos_categories(){
+        return this.subject_categories.asObservable();
     }
 }

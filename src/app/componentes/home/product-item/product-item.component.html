@@ -8,15 +8,30 @@
     <title>Document</title>
 </head>
 <div id="cards_landscape_wrap-2">
+    
     <div class="container">
         <div class="card-flyer">
+            
             <div class="image-box">
                 <img class="thumbnail" [src]="articulo.imageURL" alt="Card image cap">
+                
+            </div>
+            <div *ngIf="articulo.oferta == 'OFERTAR'" class="position-relative" style="margin-right: 25px;">
+                <span  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    OFERTA
+                    <span class="visually-hidden">unread messages</span>
+                </span>
             </div>
             <div class="card-body d-flex flex-column">
+                
                 <h5 class="card-text d-flex justify-content-center mb-1">{{articulo.nombre}}</h5>
                 <!--<p class="card-text d-flex justify-content-center mb-1">{{articulo.descripcion}}</p>-->
-                <p class="card-text d-flex justify-content-center"><strong>{{articulo.precio |currency: "S/. "}}</strong></p>
+                <div class="row position-relative" style="margin-bottom: 15px;">
+                    <div *ngIf="articulo.oferta == 'NO'" class="col card-text d-flex justify-content-center"><strong>{{articulo.precio |currency: "S/. "}}</strong></div>
+                    <div *ngIf="articulo.oferta == 'OFERTAR'" class="col card-text d-flex justify-content-center" style="text-decoration: line-through; text-decoration-color: rgb(136, 0, 0); color: rgb(191, 6, 6);">{{articulo.precio |currency: "S/. "}}</div>
+                    <div *ngIf="articulo.oferta == 'OFERTAR'" class=" col card-text d-flex"><strong>{{articulo.offerPrice |currency: "S/. "}}</strong></div>
+                </div>
+
                 <div class="d-flex justify-content-center align-items-center">
                     <div class="col-lg-auto text-end"  >
                         <button type="button" class="btn btn-outline-secondary me-2 product-btn" data-bs-toggle="modal" href="#productDetails" role="button" data-bs-placement="bottom" title="Ver detalles" (click)="verDetalles()">
@@ -28,19 +43,27 @@
                         </button>
 
                         <div class="btn" style="padding: 0px" *ngIf="User$ | async as admin">
-                            <button *ngIf="admin['email'] == 'admin@kallpaskins.com'" type="button" class="btn btn-outline-danger me-2 product-btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ver detalles" >
+                            <button *ngIf="admin['email'] == 'admin@kallpaskins.com'" type="button" class="btn btn-outline-danger me-2 product-btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Editar" [routerLink]="['/editProduct/', articulo.id]" (click)="editarProducto()">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                     <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                                     <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                                 </svg>
                             </button>
                         </div>
-
+                        
                         <button type="button" class="btn btn-primary me-2 product-btn " data-bs-toggle="tooltip" data-bs-placement="bottom" title="Añadir al carrito" (click)="addToCart()">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
                                 <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
                             </svg>
                         </button>
+                        <div class="btn" style="padding: 0px" *ngIf="User$ | async as admin">
+                            <button *ngIf="admin['email'] == 'admin@kallpaskins.com'" type="button" class="btn btn-outline-danger me-2 product-btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Eliminar" (click)="eliminarProducto(articulo.id)">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,11 +1,13 @@
 import { Inject } from "@angular/core";
 export interface Articulo{
-  nombre : "";
+  id: string;
+  nombre : string;
   cantidad : number;
-  categoria : '';
+  categoria : string;
   precio : number;
   imageURL : string;
-  oferta : '';
+  imageName : string;
+  oferta : string;
   descripcion : string;
   offerPrice : number;
   

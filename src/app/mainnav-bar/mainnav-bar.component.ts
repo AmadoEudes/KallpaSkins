@@ -1,7 +1,7 @@
 import { AuthService } from './../services/auth/auth-service.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from '../componentes/shopping-cart/cart.service';
 
 @Component({
@@ -10,6 +10,8 @@ import { CartService } from '../componentes/shopping-cart/cart.service';
   styleUrls: ['./mainnav-bar.component.css']
 })
 export class MainnavBarComponent implements OnInit {
+
+  categoryValue: string | null;
 
   cartIconValue: number= 0;
 
@@ -24,7 +26,9 @@ export class MainnavBarComponent implements OnInit {
   username : any = '';
   public User$ : Observable<any> = this.authService.afauth.user;
 
-  constructor (public authService : AuthService, private router : Router, private cartService: CartService) {  }
+  constructor (public authService : AuthService, private router : Router, private cartService: CartService, private aRoute: ActivatedRoute,) { 
+    this.categoryValue  = this.aRoute.snapshot.paramMap.get('categoryValue')
+  }
 
 
   isUser: Boolean = false;
@@ -68,4 +72,12 @@ export class MainnavBarComponent implements OnInit {
     this.cartService.enviarDatos_userVerify(this.isUser);
   }
 
+  sendCategory(category: string){
+      
+      this.cartService.enviarDatos_categories(category);
+      
+      
+    }
 }
+
+

@@ -1,4 +1,4 @@
-<div class="container text-center px-auto" style="width: auto;">
+<div class="container text-center justify-content-center px-auto" style="width: auto;">
     <div class="row" style="width: auto; align-content:center; text-align: center;">
         <div class="card  p-2 mb-5 bg-white  col-md-4 mt-5" style="padding: 0px; margin: 0px; margin: 1.5%; border: none; width: auto; ">
 
@@ -31,12 +31,12 @@
 
                             <div class="form-group col-md-5 mx-auto mt-3" style="width: 70%;">
                                 <label style="margin-right: 10px;">Categoria / Serie</label>
-                                <select (change)="changeCategory($event)" formControlName="Categoria" style="width: 100%;">
-                          <option value="value1" selected>SELECCIONAR CATEGORIA </option>
-                          <option value="value2" *ngFor="let categoria of categorias" [ngValue]="categoria" >{{categoria}}</option>
+                                <select (change)="changeCategory($event)" formControlName="categoria" style="width: 100%;">
+                            <option value="value1" disabled selected>SELECCIONAR CATEGORIA </option>
+                            <option value="value2" *ngFor="let categoria of categorias" [ngValue]="categoria" >{{categoria}}</option>
                         </select>
                             </div>
-                            <div class="text-danger" role="alert" *ngIf="isSubmit && createArticulo.controls.Categoria.status == 'INVALID'">
+                            <div class="text-danger" role="alert" *ngIf="isSubmit && createArticulo.controls.categoria.status == 'INVALID'">
                                 <strong>Error,</strong> Este espacio es requerido.
                             </div>
 

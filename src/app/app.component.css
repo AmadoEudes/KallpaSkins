@@ -83,3 +83,13 @@ body {
 
 
 /* he aqui efecto de fondo css*/
+.xd{
+   text-align: center;
+}
+
+@media screen and (max-width: 900px){
+    .xd{
+        margin-bottom: -5px;
+        padding: 0px;
+    }
+}

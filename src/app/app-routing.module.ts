@@ -7,6 +7,9 @@ import { UsuarioComponent } from "./componentes/usuario/usuario.component";
 import {LoginComponent} from './login-checkin/login-checkin.component'
 import { HomeComponent } from "../app/componentes/home/home.component";
 import { AdministradorComponent } from "./componentes/administrador/administrador.component";
+import { ProductItemComponent } from './componentes/home/product-item/product-item.component';
+import { ProductItemEditComponent } from './componentes/home/product-item-edit/product-item-edit.component';
+import { OffersComponent } from './componentes/offers/offers.component';
 
 
 
@@ -19,6 +22,14 @@ const routes: Routes = [
   {
     path : 'home',
     component : HomeComponent
+  },
+  {
+    path : 'offers',
+    component : OffersComponent
+  },
+  {
+    path : 'categories/:categoryValue',
+    component : OffersComponent
   },
   {
     path : 'login',
@@ -35,6 +46,14 @@ const routes: Routes = [
   {
     path : 'acount/AIzaSyC8JDeAyKIob3kZWaYEDba$$%%%$/user',
     component : UsuarioComponent
+  },
+  {
+    path : 'editProduct/:id',
+    component : ProductItemEditComponent
+  },
+  {
+    path: '**',
+    redirectTo :'/@home'
   }
 ];
 

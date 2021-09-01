@@ -15,11 +15,13 @@ export class AdministradorComponent implements OnInit {
   createArticulo : FormGroup;
   submitted = false;
   articulo : Articulo = {
+  id: "",
   nombre : "",
   cantidad : 0,
   categoria : '',
   precio : 0,
   imageURL : '',
+  imageName: "",
   oferta : '',
   descripcion : '',
   offerPrice : 0
@@ -58,17 +60,21 @@ export class AdministradorComponent implements OnInit {
   }
   isSubmit = false
 
+  fileName: string = "";
+
   agregarArticulo(){
     this.isSubmit = true
     if(this.createArticulo.invalid){
       return
     }
+    
     const Articulo : any = {
       nombre : this.createArticulo.value.nombre,
       cantidad : this.createArticulo.value.cantidad,
       categoria : this.createArticulo.value.Categoria,
       precio : this.createArticulo.value.precio,
       imageURL : this.createArticulo.value.imageURL,
+      imageName : this.fileName,
       oferta : this.createArticulo.value.oferta,
       descripcion : this.createArticulo.value.descripcion,
       offerPrice : this.createArticulo.value.offerPrice,
@@ -112,10 +118,11 @@ export class AdministradorComponent implements OnInit {
   public cambioArchivo(event: any) {
     if (event.target.files.length > 0) {
       for (let i = 0; i < event.target.files.length; i++) {
-        this.mensajeArchivo = `Archivo preparado: ${event.target.files[i].name}`;
+        this.mensajeArchivo = `${event.target.files[i].name}`;
         this.nombreArchivo = event.target.files[i].name;
         this.datosFormulario.delete('archivo');
         this.datosFormulario.append('archivo', event.target.files[i], event.target.files[i].name)
+        this.fileName = this.mensajeArchivo;
       }
     } else {
       this.mensajeArchivo = 'No hay un archivo seleccionado';
@@ -140,7 +147,9 @@ export class AdministradorComponent implements OnInit {
       this.articulo.imageURL = URL;
 
     });
-    console.log(this.URLPublica)
+    console.log(this.fileName)
+    console.log(this.nombreArchivo)
+
   }
 }
 
