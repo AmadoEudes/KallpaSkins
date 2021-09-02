@@ -5,8 +5,8 @@
 
             <div class="card shadow-lg login-wrap" style="text-align: center; border-radius: 20px;">
                 <div class="card-body login-html" style="border-radius: 20px;">
-                    <input id="tab-1" type="radio" name="tab" class="sign-in"><label for="tab-1" class="tab"><a routerLink="/login">LOGIN</a> </label>
-                    <input id="tab-2" type="radio" name="tab" class="sign-up" checked><label for="tab-2" class="tab">REGISTRO</label>
+                    <input id="tab-1" type="radio" name="tab" class="sign-in "><label for="tab-1" class="tab"><a routerLink="/login">LOGIN</a> </label>
+                    <input id="tab-2" type="radio" name="tab" class="sign-up " checked><label for="tab-2" class="tab">REGISTRO</label>
                     <form [formGroup]="registerForm" (ngSubmit)="onRegister()" class="login-form">
 
                         <div class=" mb-3 mt-3 group">
@@ -20,16 +20,57 @@
                             <input id="user" type="password" class="input form-control" placeholder="Password" formControlName="password" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
 
+                        <div class="group mb-3 mt-3">
+                            <span class="label py-3" id="basic-addon1"><i class="fas fa-lock mx-2"></i>nombres</span>
+                            <input id="user" type="text" class="input form-control" placeholder="Nombres" formControlName="nombres" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+
+                        <div class="group mb-3 mt-3">
+                            <span class="label py-3" id="basic-addon1"><i class="fas fa-lock mx-2"></i>apellidos</span>
+                            <input id="user" type="text" class="input form-control" placeholder="Apellidos" formControlName="apellidos" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+
+                        <div class="group mb-3 mt-3">
+                            <span class="label py-3" id="basic-addon1"><i class="fas fa-lock mx-2"></i>departamento</span>
+                            <select class="input form-control" placeholder="DEPARTAMENTO" [(ngModel)]="departamento" (change)="cambio_departamento($event)" formControlName="departamento" style="color: rgb(255, 172, 17);">
+                              <option selected >SELECCIONE</option>
+                              <option *ngFor="let departamento of departamentos" >{{departamento.name}}</option>
+                            </select>
+                        </div>
+
+                        <div class="group mb-3 mt-3">
+                            <span class="label py-3" id="basic-addon1"><i class="fas fa-lock mx-2"></i>provincia</span>
+                            <select id="user" type="text" class="input form-control" placeholder="PROVINCIA" [(ngModel)]="provincia" (change)="cambio_provincia($event)" formControlName="provincia" aria-label="Username" aria-describedby="basic-addon1" style="color: rgb(255, 172, 17);">
+                              <option selected >SELECCIONE</option>
+                              <option *ngFor="let provincia of provincias_elegidas"> {{provincia}} </option>
+                            </select>
+                        </div>
+
+                        <div class="group mb-3 mt-3">
+                            <span class="label py-3" id="basic-addon1"><i class="fas fa-lock mx-2"></i>distrito</span>
+                            <select id="user" type="text" class="input form-control" placeholder="DISTRITO" formControlName="distrito" aria-label="Username" aria-describedby="basic-addon1" style="color: rgb(255, 172, 17);">
+                              <option selected >SELECCIONE</option>
+                              <option *ngFor="let distrito of distritos_elegidos"> {{distrito}} </option>
+                            </select>
+                        </div>
+
+                        <div class="group mb-3 mt-3">
+                            <span class="label py-3" id="basic-addon1"><i class="fas fa-lock mx-2"></i>celular</span>
+                            <input id="user" type="text" class="input form-control" placeholder="CELULAR" formControlName="celphone" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+
+
+
                         <div class="mb-3" style="text-align: left; font-size: 11px; width: auto;">
                             <p class="_58mv" style="color: silver;">Al hacer clic en "Registrarse", aceptas nuestras
-                                <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="color:rgb(33, 114, 245);">
+                                <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="color:rgb(57, 133, 255);">
                                     <a href="#"> condiciones, la Política de datos y la Política de cookies</a> </a>. Es posible que te enviemos notificaciones por SMS, que puedes desactivar cuando quieras.
                             </p>
                         </div>
 
 
                         <div class="group">
-                            <button type="submit" class="button" style="width: 100%;">REGISTRARSE</button>
+                            <button type="submit" class="button" style="width: 100%;" (click)="addUser()">REGISTRARSE</button>
                         </div>
 
                     </form>
@@ -146,7 +187,24 @@
             </div>
         </div>
         <div class="col-md-3 mx-auto mt-5" style="width: auto;">
-            <h4>KALLPA SKINS STORE</h4>
+            <h4 class="text-center">KALLPA SKINS STORE <img src="../../assets/logo_kallpa.png" width="40px" height="40px" alt="image" style="border-radius: 35%;"></h4>
+
+            <h4 class="text-center">
+                Estimado cliente, bienvenido al registro
+            </h4>
+            <div>
+                <p>
+                    Estimado usuario, le pedimos llenar todos los campos para una mejor experiencia en su compra.
+                </p>
+            </div>
+            <div>
+                <p>
+                    si ya eres miembro de nuestra empresa por favor inicia sesión, esto con el fin de procesar tus compras de manera segura. <br> Ademas al ser parte de nuestra empresa usted puede acceder a promociones exclusivas para miembros de nuestra
+                    <br>comunidad.
+                    <br><br>
+
+                </p>
+            </div>
 
         </div>
     </div>

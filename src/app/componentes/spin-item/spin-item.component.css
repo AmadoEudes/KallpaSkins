@@ -12,11 +12,38 @@
     width: 40px;
 }
 
-.rastroClick{
+.elemento {
     border: none;
 }
-.rastroClick:focus{
-    
+
+button[type=button] {
     border: none;
-    outline: 20px;
+    outline: none;
+    padding: .375rem .75rem;
+    background: none;
+}
+
+button[type=button]:focus {
+    border: none;
+    outline: none;
+}
+
+button[type=button]::before {
+    border: none;
+    outline: none;
+}
+
+.form-control:focus {
+    border: none;
+    outline: none;
+}
+
+input[type=text] {
+    padding: .375rem .75rem;
+    width: 50px;
+}
+
+input[type=text] {
+    border: none;
+    outline: none;
 }

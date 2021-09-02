@@ -41,12 +41,14 @@
     <div class="d-flex justify-content-center" style="align-content: center; text-align: center;">
         <div style="margin-top: 20px; margin-bottom: 10px; text-align: center;">
             <h3 style="text-align: center;"><b>Productos principales</b></h3>
+            <h4>
+            </h4>
         </div>
     </div>
-    <div class="container" style="align-content: center; padding-left: 20px;">
-        <div class="row align-items-center " style="margin: 0px; padding-bottom: 40px">
-            <div class="col col-md-3" style="padding-top: 0px;  width: auto" *ngFor="let item of items">
-                <app-product-item [articulo]="item"></app-product-item>
+    <div class="container">
+        <div class="row" style="margin: 0px; padding-bottom: 40px; ">
+            <div class="col-md-3 " style="padding-top: 0px; width: auto; " *ngFor="let item of items">
+                <app-product-item [articulo]="item "></app-product-item>
             </div>
         </div>
     </div>

@@ -1,3 +1,4 @@
+
 import { AuthService } from './../services/auth/auth-service.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -62,8 +63,14 @@ export class MainnavBarComponent implements OnInit {
     );
   }
 
+  constructor (public authService : AuthService, private router : Router) { }
 
+
+
+  async logOut(){
+    localStorage.clear()
   logOut(): void{
+
     this.authService.logOut();
     this.router.navigate(["/login"])
   }
@@ -78,6 +85,8 @@ export class MainnavBarComponent implements OnInit {
       
       
     }
+
+
 }
 
 

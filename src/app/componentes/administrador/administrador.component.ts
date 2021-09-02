@@ -106,7 +106,7 @@ export class AdministradorComponent implements OnInit {
     archivo: new FormControl(null, Validators.required),
   })
 
-  public mensajeArchivo = 'No hay un archivo seleccionado';
+  public mensajeArchivo = 'Selecccione un archivo';
   public datosFormulario = new FormData();
   public nombreArchivo = '';
   public URLPublica = '';
@@ -151,12 +151,5 @@ export class AdministradorComponent implements OnInit {
     console.log(this.nombreArchivo)
 
   }
-}
-
-
-
-
-function agregarArticulo() {
-  throw new Error('Function not implemented.');
 }
 

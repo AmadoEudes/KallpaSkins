@@ -1,3 +1,4 @@
+import { FirebaseStorageService } from 'src/app/services/firebase-storage.service';
 import { Router, ActivatedRoute } from "@angular/router";
 import { Component, OnInit } from '@angular/core';
 
@@ -19,6 +20,8 @@ export class HomeComponent implements OnInit {
 
   constructor(public firestore: AngularFirestore, public authService : AuthService, private firebaseStorageService: FirebaseStorageService) {
     //this.items = firestore.collection("articulos").valueChanges();
+  constructor( private firestore: AngularFirestore,private firebaseStorageService : FirebaseStorageService,private aRoute : ActivatedRoute) {
+
   }
 
   isUser: Boolean = false;
@@ -36,6 +39,10 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.userExist();
     this.getProducts()
+
+    // fin
+    this.getProductos();
+    this.getUsers()
   }
 
   getProducts(){
@@ -52,4 +59,35 @@ export class HomeComponent implements OnInit {
       console.log(this.items)
     })
   }
+
+  getUsers(){
+    localStorage.removeItem('KIob3kZW_INfo')
+    let users: any[] = [];
+    this.firebaseStorageService.getUsers().subscribe( data =>{
+      data.forEach((element:any) => {
+        users.push({
+          id: element.payload.doc.id,
+          ...element.payload.doc.data(),
+        })
+      });
+      localStorage.setItem('KIob3kZW_INfo', JSON.stringify(users))
+    })
+  }
+
+
+  getProductos(){
+    localStorage.removeItem('products')
+    this.firebaseStorageService.getProducts().subscribe(data =>{
+      this.items = [];
+      data.forEach((element:any) => {
+
+        this.items.push({
+          id: element.payload.doc.id,
+          ...element.payload.doc.data()
+        });
+      });
+      localStorage.setItem('products',JSON.stringify(this.items))
+    })
+  }
+
 }

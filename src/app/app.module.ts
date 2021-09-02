@@ -1,6 +1,7 @@
+import { FirebaseStorageService } from 'src/app/services/firebase-storage.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from "../environments/environment";
@@ -47,6 +48,10 @@ import { CuteComponent } from './componentes/categories/cute/cute.component';
 import { LittlePetsComponent } from './componentes/categories/little-pets/little-pets.component';
 import { KittenComponent } from './componentes/categories/kitten/kitten.component';
 import { SweetHoldoverComponent } from './componentes/categories/sweet-holdover/sweet-holdover.component';
+import { ViewUserComponent } from './componentes/usuario/view-user/view-user.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
+
 
 
 @NgModule({
@@ -80,6 +85,7 @@ import { SweetHoldoverComponent } from './componentes/categories/sweet-holdover/
     LittlePetsComponent,
     KittenComponent,
     SweetHoldoverComponent,
+    ViewUserComponent
   ],
   imports: [
     BrowserModule,
@@ -93,7 +99,8 @@ import { SweetHoldoverComponent } from './componentes/categories/sweet-holdover/
     AngularFireAuthModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    NgParticlesModule
+    NgParticlesModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [UserServicesService, AuthService ],
   bootstrap: [AppComponent]

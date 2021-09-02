@@ -61,12 +61,28 @@
                 <ul class="d-flex navbar-dark" style="padding-right: 30px;" *ngIf="User$ | async as user; else login">
 
                     <li *ngIf="user" class="nav-item navbar-nav">
-                        <a class="nav-link" style="color: whitesmoke;" routerLink="/" routerLinkActive="active"> <i class="fas fa-user"></i> {{user['email']}}
-                        </a>
+                        <div class="dropdown">
+                            <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <i class="fas fa-user"></i> {{user['displayName'] == null ? user['email'] : user['displayName']}}
+                            </a>
+                            <ul class="dropdown-menu " style="background: #a2e1f1;" aria-labelledby="navbarDropdown">
+
+                                <div class="card " style="background: none; border: none; ">
+                                    <div class="card-body" style="height: 100px; width: 180px;  text-align: center;">
+                                        <img [src]="user['photoURL'] == null ? '../../assets/profile_default.jpg' : user['photoURL']" alt="profile" width="70px" height="70px" style="border-radius: 40px;">
+                                    </div>
+                                </div>
+                                <li>
+                                    <a class="dropdown-item " routerLink="/login" (click)="logOut()" style="align-self: center;">Cerrar Sesión <i class="fad fa-sign-out"></i></a>
+                                </li>
+
+                            </ul>
+                        </div>
+
                     </li>
                     <li *ngIf="user" class="nav-item navbar-nav">
                         <a class="nav-link" style="color: whitesmoke;" routerLink="/login" routerLinkActive="active" (click)="logOut()"> <strong style="color: rgba(255, 173, 173, 0.918);"><i class="fas fa-sign-out-alt mx-2"></i> LogOut</strong>
                         </a>
+
                     </li>
                 </ul>
                 <ng-template #login>

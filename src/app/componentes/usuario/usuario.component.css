@@ -1,0 +1,28 @@
+    @media screen and (max-width: 720px) {
+        .reponsive1 {
+            padding: 0px !important;
+            padding-top: 100px !important;
+            display: block;
+            justify-content: stretch;
+            padding-bottom: 55px !important;
+        }
+        ul {
+            width: 100% !important;
+        }
+        .res {
+            display: block !important;
+            justify-content: center !important;
+        }
+        .cont {
+            left: 38% !important;
+        }
+        h3 {
+            text-align: center;
+        }
+    }
+
+    .sombra {
+        -webkit-box-shadow: -5px 33px 40px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: -5px 33px 40px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: -5px 33px 40px 0px rgba(0, 0, 0, 0.75);
+    }

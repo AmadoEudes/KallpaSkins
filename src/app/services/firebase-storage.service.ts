@@ -1,3 +1,4 @@
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
@@ -13,6 +14,8 @@ export class FirebaseStorageService {
 
   constructor(
     public storage: AngularFireStorage, public firestore: AngularFirestore
+    private storage: AngularFireStorage,
+    private firestore : AngularFirestore
   ) { }
 
   //Tarea para subir archivo
@@ -39,5 +42,14 @@ export class FirebaseStorageService {
 
   actualizarProducto(id: string, data: any):  Promise<any>{
     return this.firestore.collection('articulos').doc(id).update(data);
+  }
+
+  getUsers():Observable<any>{
+    return this.firestore.collection('usuarios').snapshotChanges();
+  }
+
+  //obtene productos
+  getProducts(): Observable<any>{
+    return this.firestore.collection("articulos").snapshotChanges();
   }
 }

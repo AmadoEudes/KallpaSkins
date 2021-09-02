@@ -1,1 +1,130 @@
-<p>usuario works!</p>
+<div class="container" style="position: relative; justify-content: center; text-align: center;">
+    <p class="cont" style="left: 48%;     margin-bottom: -150px; box-sizing: border-box;">
+        <img class="sombra" [src]="user['photoURL'] == null ? '../../assets/profile_default.jpg' : user['photoURL']" alt="profileImage" height="120px" width="120px" style="border-radius: 100%; border: solid 1px; margin: 0px; padding: 0px;">
+    </p>
+    <h2 style="font-size: 120%; text-align: center; margin-top: 150px; margin-bottom: -130px; color: white; position: relative;">
+        {{user['displayName'] == null ? (datosUsuario['nombres'] == '' ? 'desconocido' : datosUsuario['nombres']) : user['displayName']}}
+    </h2>
+    <p style="text-align: center; margin-top: 150px; margin-bottom: -250px; color: white; position: relative;">
+        {{user['email'] == null ? 'DESCONOCIDO' : user['email']}}
+    </p>
+</div>
+<div class="container ">
+    <div class="card" style="background: silver; border: none;"></div>
+
+    <div class="card-header bg-secondary reponsive1" style="box-sizing: border-box; padding: 7.625em 5.625em 1.75em; margin-top: 8.5rem; border-radius: 30px 30px 30px 30px; padding-bottom: 70px; border: black solid 1px;">
+
+        <div>
+            <div style="display: flex;" class="justify-content-between res">
+                <ul class="nav-item" style="display: block; width: 45%;">
+                    <li class="nav-link text-light" style="display: block;">
+                        <div>
+                            <label style="color: rgb(207, 203, 203); margin-top: 25px;">Correo</label>
+                        </div>
+                        <div style="font-size: 100%; border-bottom: solid 1px; width: 100%;">
+                            {{user['email'] == null ? 'DESCONOCIDO' : user['email']}}
+                        </div>
+                    </li>
+                </ul>
+                <ul class="nav-item" style="display: block; width: 45%;">
+                    <li class="nav-link text-light" style=" padding-right: 25px; ">
+                        <div>
+                            <label style="color: rgb(207, 203, 203); margin-top: 25px;">Password</label>
+                        </div>
+                        <div style="font-size: 100%; border-bottom: solid 1px; width: 100%;">
+                            *********************
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container justify-content-center" style="justify-content: center; text-align: center;">
+        <button type="button" class="btn btn-primary mx-5 my-3" data-bs-toggle="modal" data-bs-target="#exampleModal" style="border-radius: 20px;"> ACTUALIZAR MIS DATOS</button>
+    </div>
+    <h3>Informacion personal</h3>
+    <div class="card-body bg-secondary" style="border-radius: 30px 30px 30px 30px;">
+        <div style="padding: 50px 100px;" class="reponsive1">
+            <div style="display: flex;" class="justify-content-between res">
+                <ul class="nav-item" style="display: block; width: 45%;">
+                    <li class="nav-link text-light" style="display: block;">
+                        <div>
+                            <label style="color: rgb(207, 203, 203); margin-top: 25px;">NOMBRES</label>
+                        </div>
+                        <div style="font-size: 100%; border-bottom: solid 1px; width: 100%;">
+                            {{datosUsuario['nombres'] == '' ? 'NO DEFINIDO' : datosUsuario['nombres']}}
+                        </div>
+                    </li>
+                    <li class="nav-link text-light" style="display: block;">
+                        <div>
+                            <label style="color: rgb(207, 203, 203); margin-top: 25px;">APELLIDOS</label>
+                        </div>
+                        <div style="font-size: 100%; border-bottom: solid 1px; width: 100%;">
+                            {{datosUsuario['apellidos'] == '' ? 'NO DEFINIDO' : datosUsuario['apellidos']}}
+                        </div>
+                    </li>
+                    <li class="nav-link text-light" style="display: block;">
+                        <div>
+                            <label style="color: rgb(207, 203, 203); margin-top: 25px;">DEPARTAMENTO</label>
+                        </div>
+                        <div style="font-size: 100%; border-bottom: solid 1px; width: 100%;">
+                            {{datosUsuario['departamento'] == '' ? 'NO DEFINIDO' : datosUsuario['departamento']}}
+                        </div>
+                    </li>
+                </ul>
+                <ul class="nav-item" style="display: block; width: 45%;">
+                    <li class="nav-link text-light" style=" padding-right: 25px; ">
+                        <div>
+                            <label style="color: rgb(207, 203, 203); margin-top: 25px;">PROVINCIA</label>
+                        </div>
+                        <div style="font-size: 100%; border-bottom: solid 1px; width: 100%;">
+                            {{datosUsuario['provincia'] == '' ? 'NO DEFINIDO' : datosUsuario['provincia']}}
+                        </div>
+                    </li>
+                    <li class="nav-link text-light" style=" padding-right: 25px; ">
+                        <div>
+                            <label style="color: rgb(207, 203, 203); margin-top: 25px;">DISTRITO</label>
+                        </div>
+                        <div style="font-size: 100%; border-bottom: solid 1px; width: 100%;">
+                            {{datosUsuario['distrito'] == '' ? 'NO DEFINIDO' : datosUsuario['distrito']}}
+                        </div>
+                    </li>
+                    <li class="nav-link text-light" style=" padding-right: 25px; ">
+                        <div>
+                            <label style="color: rgb(207, 203, 203); margin-top: 25px;">CELULAR</label>
+                        </div>
+                        <div style="font-size: 100%; border-bottom: solid 1px; width: 100%;">
+                            {{datosUsuario['celphone'] == '' ? 'NO DEFINIDO' : datosUsuario['celphone']}}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade " id="exampleModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="border-radius: 15px 15px 0px 0px;">
+                <div class="modal-header bg-secondary text-white" style="border-radius: 15px 15px 0px 0px;">
+                    <h5 class="modal-title text-center" id="exampleModalLabel">ACTUALIZA TUS DATOS</h5>
+                    <a type="button" class="btn" data-bs-dismiss="modal" aria-label="Close"> <i class="far fa-times-circle fa-2x text-white"></i></a>
+                </div>
+                <div class="modal-body">
+                    <h4 class="text-center text-danger">
+                        Estimado cliente debido al mantenimiento del sitio esta funcionalidad aún no está disponible.
+                    </h4>
+
+                </div>
+                <div class="modal-footer">
+                    <!--<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--end MOdal-->
+</div>

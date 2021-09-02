@@ -25,13 +25,60 @@
 
 
                     </form>
-                    <hr class="hr mb-6">
+
                     <a routerLink="/signup" class="nav-link" style="color: silver;">¿Aún no tienes una cuenta?</a>
+                    <div class="form-group mt-3 mb-3">
+                        <button (click)="googleSignin()" type="button" class="btn btn-danger">Iniciar sesión con <i class="fab fa-google fa-x"></i>OOGLE</button>
+                    </div>
+
+
+                    <!-- Button trigger modal -->
+                    <a class=" mt-5" style="color: rgb(18, 220, 246); cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal">Olvidé mi contraseña</a>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header" style="background: rgb(10, 126, 221);">
+                                    <h5 class="modal-title text-light" id="exampleModalLabel">REESTABLECER CONTRASEÑA</h5>
+                                    <button type="button" style="background: none; border: none;" class="text-light" data-bs-dismiss="modal" aria-label="Close"> <i class="fal fa-times-circle fa-2x"></i></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="group input">
+                                        <label>Escribe tu correo para reestablecer la contraseña</label>
+                                        <input required type="text" placeholder="Escribe tu correo" class="form-control" [(ngModel)]="correo">
+                                    </div>
+                                </div>
+                                <div class="modal-footer justify-content-center">
+                                    <button type="button" class="btn btn-primary" (click)="resetPass()">Enviar correo de reestablecimiento</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
         <div class="col-md-3 mx-auto mt-5" style="width: auto;">
-            <h4>KALLPA SKINS STORE</h4>
+            <h4 class="text-center">KALLPA SKINS STORE <img src="../../assets/logo_kallpa.png" width="40px" height="40px" alt="image" style="border-radius: 35%;"></h4>
+
+            <h4 class="text-center">
+                Estimado cliente, bienvenido a nuestro sitio web.
+            </h4>
+            <div>
+                <p>
+                    Si aún no está afiliado en nuestro sitio web puede ser parte de nosotros
+                    <strong><a routerLink="/signup" class="text-primary">aquí</a></strong>.
+                </p>
+            </div>
+            <div>
+                <p>
+                    si eres miembro de nuestra empresa por favor inicia sesión, esto con el fin de procesar tus compras de manera segura. <br> Ademas al ser parte de nuestra empresa usted puede acceder a promociones exclusivas para miembros de nuestra
+                    <br>comunidad.
+                    <br><br>
+
+                </p>
+            </div>
 
         </div>
     </div>

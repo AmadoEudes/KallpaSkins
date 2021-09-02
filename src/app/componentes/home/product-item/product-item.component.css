@@ -1,31 +1,35 @@
 .thumbnail {
     width: 275px;
     height: 300px;
-    display: inline-block; /* makes it fit in like an <img> */
-    background-size: cover; /* or contain */
+    display: inline-block;
+    /* makes it fit in like an <img> */
+    background-size: cover;
+    /* or contain */
     background-position: center center;
     background-repeat: no-repeat;
 }
-.container{
+
+.container {
     padding: 0px 0px 0px 0px;
 }
 
-#cards_landscape_wrap-2{
+#cards_landscape_wrap-2 {
     text-align: center;
     background: #F7F7F7;
-  }
+}
 
-  #cards_landscape_wrap-2 a{
+#cards_landscape_wrap-2 a {
     text-decoration: none;
     outline: none;
-  }
-  #cards_landscape_wrap-2 .card-flyer {
+}
+
+#cards_landscape_wrap-2 .card-flyer {
     border-radius: 15px;
-  }
-  #cards_landscape_wrap-2 .card-flyer .image-box{
+}
+
+#cards_landscape_wrap-2 .card-flyer .image-box {
     background: #ffffff;
     overflow: hidden;
-    
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     border-bottom-left-radius: 5px;
@@ -51,11 +55,13 @@
   }
   #cards_landscape_wrap-2 .card-flyer .text-box{
     text-align: center;
-  }
-  #cards_landscape_wrap-2 .card-flyer .text-box .text-container{
+}
+
+#cards_landscape_wrap-2 .card-flyer .text-box .text-container {
     padding: 30px 18px;
-  }
-  #cards_landscape_wrap-2 .card-flyer{
+}
+
+#cards_landscape_wrap-2 .card-flyer {
     background: #FFFFFF;
     margin-top: 50px;
     -webkit-transition: all 0.2s ease-in;
@@ -64,8 +70,9 @@
     -o-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
     box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.40);
-  }
-  #cards_landscape_wrap-2 .card-flyer:hover{
+}
+
+#cards_landscape_wrap-2 .card-flyer:hover {
     background: #fff;
     box-shadow: 0px 15px 26px rgba(0, 0, 0, 0.50);
     -webkit-transition: all 0.2s ease-in;
@@ -74,22 +81,24 @@
     -o-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
     margin-top: 50px;
-  }
-  #cards_landscape_wrap-2 .card-flyer .text-box p{
+}
+
+#cards_landscape_wrap-2 .card-flyer .text-box p {
     margin-top: 10px;
     margin-bottom: 0px;
-    padding-bottom: 0px; 
+    padding-bottom: 0px;
     font-size: 14px;
     letter-spacing: 1px;
     color: #000000;
-  }
-  #cards_landscape_wrap-2 .card-flyer .text-box h6{
+}
+
+#cards_landscape_wrap-2 .card-flyer .text-box h6 {
     margin-top: 0px;
-    margin-bottom: 4px; 
+    margin-bottom: 4px;
     font-size: 18px;
     font-weight: bold;
     text-transform: uppercase;
     font-family: 'Roboto Black', sans-serif;
     letter-spacing: 1px;
     color: #00acc1;
-  }
+}

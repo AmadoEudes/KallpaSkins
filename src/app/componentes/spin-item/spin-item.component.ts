@@ -11,6 +11,10 @@ export class SpinItemComponent implements OnInit {
 
   constructor() { }
 
+  constructor() {
+
+  }
+
   ngOnInit(): void {
   }
 
