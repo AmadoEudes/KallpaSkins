@@ -1,6 +1,5 @@
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 
@@ -14,8 +13,7 @@ export class FirebaseStorageService {
 
   constructor(
     public storage: AngularFireStorage, public firestore: AngularFirestore
-    private storage: AngularFireStorage,
-    private firestore : AngularFirestore
+
   ) { }
 
   //Tarea para subir archivo
@@ -26,10 +24,6 @@ export class FirebaseStorageService {
   //Referencia del archivo
   public referenciaCloudStorage(nombreArchivo: string) {
     return this.storage.ref(nombreArchivo);
-  }
-
-  getProducts(): Observable<any>{
-    return this.firestore.collection('articulos').snapshotChanges();
   }
 
   getProduct(id: string): Observable<any>{

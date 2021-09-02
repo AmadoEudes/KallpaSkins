@@ -40,7 +40,7 @@ export class AdministradorComponent implements OnInit {
     this.createArticulo = this.fbuilder.group({
       nombre : ['',Validators.required],
       cantidad : ['',Validators.required],
-      Categoria : ['',Validators.required],
+      categoria : ['',Validators.required],
       precio : ['',Validators.required],
       imageURL : ['',Validators.required],
       oferta : ['',Validators.required],
@@ -71,7 +71,7 @@ export class AdministradorComponent implements OnInit {
     const Articulo : any = {
       nombre : this.createArticulo.value.nombre,
       cantidad : this.createArticulo.value.cantidad,
-      categoria : this.createArticulo.value.Categoria,
+      categoria : this.createArticulo.value.categoria,
       precio : this.createArticulo.value.precio,
       imageURL : this.createArticulo.value.imageURL,
       imageName : this.fileName,

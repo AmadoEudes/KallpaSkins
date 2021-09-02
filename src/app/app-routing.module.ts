@@ -10,6 +10,7 @@ import { AdministradorComponent } from "./componentes/administrador/administrado
 import { ProductItemComponent } from './componentes/home/product-item/product-item.component';
 import { ProductItemEditComponent } from './componentes/home/product-item-edit/product-item-edit.component';
 import { OffersComponent } from './componentes/offers/offers.component';
+import { AstronautaComponent } from './componentes/categories/astronauta/astronauta.component';
 
 
 
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path : 'offers',
     component : OffersComponent
+  },
+  {
+    path : 'categories/Astronauta',
+    component : AstronautaComponent,
   },
   {
     path : 'login',

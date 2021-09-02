@@ -63,16 +63,10 @@ export class MainnavBarComponent implements OnInit {
     );
   }
 
-  constructor (public authService : AuthService, private router : Router) { }
-
-
-
   async logOut(){
-    localStorage.clear()
-  logOut(): void{
-
     this.authService.logOut();
-    this.router.navigate(["/login"])
+    localStorage.clear()
+    this.router.navigate(["/home"])
   }
   verificarLogin(){
     this.userExist()
@@ -87,6 +81,6 @@ export class MainnavBarComponent implements OnInit {
     }
 
 
+
+
 }
-
-

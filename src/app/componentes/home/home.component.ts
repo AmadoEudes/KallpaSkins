@@ -6,7 +6,6 @@ import { UserServicesService } from "../../services/user-services.service";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { Observable } from "rxjs";
 import { AuthService } from "src/app/services/auth/auth-service.service";
-import { FirebaseStorageService } from "src/app/services/firebase-storage.service";
 import { elementEventFullName } from "@angular/compiler/src/view_compiler/view_compiler";
 
 @Component({
@@ -18,12 +17,9 @@ export class HomeComponent implements OnInit {
 
   items : any[] = [];
 
-  constructor(public firestore: AngularFirestore, public authService : AuthService, private firebaseStorageService: FirebaseStorageService) {
+  constructor(public firestore: AngularFirestore, public authService : AuthService, private firebaseStorageService: FirebaseStorageService, private aRoute : ActivatedRoute) {
     //this.items = firestore.collection("articulos").valueChanges();
-  constructor( private firestore: AngularFirestore,private firebaseStorageService : FirebaseStorageService,private aRoute : ActivatedRoute) {
-
   }
-
   isUser: Boolean = false;
 
   async userExist(){

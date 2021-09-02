@@ -10,8 +10,7 @@ import { AuthService } from 'src/app/services/auth/auth-service.service';
 })
 export class UsuarioComponent implements OnInit {
 
-  constructor(private firebaseStorageService:FirebaseStorageService) {
-  constructor(public authService : AuthService,) { }
+  constructor(private firebaseStorageService:FirebaseStorageService, public authService : AuthService,) {
 
    }
 

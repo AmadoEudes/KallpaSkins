@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, VERSION } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-spin-item',
@@ -11,9 +12,6 @@ export class SpinItemComponent implements OnInit {
 
   constructor() { }
 
-  constructor() {
-
-  }
 
   ngOnInit(): void {
   }

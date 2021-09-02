@@ -20,7 +20,7 @@ export class LoginComponent {
     password : new FormControl('')
   })
 
-  constructor(private authService : AuthService) { }
+  constructor(private authService : AuthService, private router : Router) { }
   isUser: Boolean = false;
   correo:string = ""
 
@@ -35,7 +35,6 @@ export class LoginComponent {
     }
   }
 
-  constructor(private authService : AuthService, private router : Router) { }
 
   ngOnInit(): void {
   this.userExist();
