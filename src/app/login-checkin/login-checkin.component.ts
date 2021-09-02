@@ -46,7 +46,7 @@ export class LoginComponent {
     localStorage.removeItem('user')
     const {email, password} = this.loginForm.value;
     this.authService.login(email, password)
-    
+
     await this.authService.login(email, password)
     localStorage.setItem('user',  JSON.stringify(await this.authService.getCurrentUser()))
     this.router.navigate(['/home'])
@@ -83,6 +83,7 @@ export class LoginComponent {
       await this.authService.loginGoogle()
       localStorage.setItem('user',  JSON.stringify(await this.authService.getCurrentUser()))
       this.router.navigate(['/home'])
+      this.messageLauch('success', '¡Bienvenido estimado usuario!')
     } catch (error) {
       console.log(error)
     }

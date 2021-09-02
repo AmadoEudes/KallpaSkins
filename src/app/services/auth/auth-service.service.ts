@@ -13,7 +13,7 @@ export class AuthService {
     toast: true,
     position: 'top',
     showConfirmButton: false,
-    timer: 3000,
+    timer: 2000,
     timerProgressBar: false,
 
   })
@@ -31,7 +31,7 @@ export class AuthService {
     try {
       const result = await this.afauth.signInWithEmailAndPassword(email, password);
       this.router.navigate(['/acount/AIzaSyC8JDeAyKIob3kZWaYEDba$$%%%$/user'])
-      this.messageLauch('success', '¡Bienvenido!')
+      this.messageLauch('success', '¡Bienvenido mi estimado!')
       return result;
 
     } catch (error) {
