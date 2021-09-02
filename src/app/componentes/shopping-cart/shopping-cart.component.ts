@@ -5,6 +5,7 @@ import { DatePipe } from '@angular/common';
 import { AuthService } from 'src/app/services/auth/auth-service.service';
 import { Observable } from 'rxjs';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -27,7 +28,7 @@ export class ShoppingCartComponent implements OnInit {
     // { id:4, nombre:"Pizza 4", detalles:"", precio:20, cantidad:1, imgUrl:"" }
   cartTotal = 0;
   
-  constructor(private cartService: CartService, public authService: AuthService,){
+  constructor(private cartService: CartService, public authService: AuthService, private router: Router){
 
   }
 
@@ -142,6 +143,26 @@ export class ShoppingCartComponent implements OnInit {
       title: 'Ya se encuentra en el carrito'
     })
   }
+  ToastII = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 1500,
+    timerProgressBar: true,
+    
+  })
+  showCartEmpty(){
+    this.ToastII.fire({
+      icon: 'error',
+      title: 'No hay ningún producto en el carrito'
+    })
+  }
+  showUsserNotLoged(){
+    this.ToastII.fire({
+      icon: 'question',
+      title: '¿No encuentra el login?'
+    })
+  }
 
   removeProductTocart( lista: CartItem[], item: CartItem){
     for(const i in lista){
@@ -175,8 +196,12 @@ export class ShoppingCartComponent implements OnInit {
     this.vaciarCarrito()
       } else {
         console.log("Logueate sapazo")
+        this.showUsserNotLoged();
+        this.router.navigate(['/login'])
+
       }
     } else {
+      this.showCartEmpty();
       console.log("No seas sapo")
     }
   }

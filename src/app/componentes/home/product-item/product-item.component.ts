@@ -47,8 +47,14 @@ export class ProductItemComponent implements OnInit {
   
 
   addToCart(){
-    this.cartItem = new CartItem(this.articulo.nombre,this.articulo.precio, this.articulo.offerPrice, this.value,this.articulo.cantidad,this.articulo.imageURL);
-    this.cartService.enviarDatos(this.cartItem);
+
+    if (this.articulo.oferta == "NO") {
+      this.cartItem = new CartItem(this.articulo.nombre,this.articulo.precio, this.articulo.offerPrice, this.value,this.articulo.cantidad,this.articulo.imageURL);
+      this.cartService.enviarDatos(this.cartItem);
+    } else {
+      this.cartItem = new CartItem(this.articulo.nombre,this.articulo.offerPrice, this.articulo.offerPrice, this.value,this.articulo.cantidad,this.articulo.imageURL);
+      this.cartService.enviarDatos(this.cartItem);
+    }
   }
 
   addItem(newItem: string) {
