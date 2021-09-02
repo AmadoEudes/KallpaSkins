@@ -29,7 +29,7 @@ export class MainnavBarComponent {
 
 
   async logOut(){
-    localStorage.removeItem('user')
+    localStorage.clear()
     this.authService.logOut();
     this.router.navigate(["/home"])
   }

@@ -58,6 +58,7 @@ export class RegisterComponent implements OnInit {
   }
 
   async onRegister(){
+    localStorage.removeItem('user')
     const Usuario : any = {
       email : this.registerForm.value.email,
       nombres : this.registerForm.value.nombres,
@@ -80,12 +81,11 @@ export class RegisterComponent implements OnInit {
     //
 
     const {email, password} = this.registerForm.value;
-    this.authService.register(email, password);
+    await this.authService.register(email, password);
+    localStorage.setItem('user',  JSON.stringify(await this.authService.getCurrentUser()))
   }
 
-  addUser(){
-    console.log("this is a very program")
-  }
+
 
   cambio_departamento(divece:any){
     this.distritos_elegidos = [];

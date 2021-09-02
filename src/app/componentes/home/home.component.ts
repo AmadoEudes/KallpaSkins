@@ -15,16 +15,20 @@ export class HomeComponent implements OnInit {
 
   items : any[] = [];
 
-  constructor( private firestore: AngularFirestore,private firebaseStorageService : FirebaseStorageService) {
+  constructor( private firestore: AngularFirestore,private firebaseStorageService : FirebaseStorageService,private aRoute : ActivatedRoute) {
 
   }
 
   ngOnInit(): void {
-    this.getProductos()
+
+    // fin
+    this.getProductos();
     this.getUsers()
   }
 
+
   getUsers(){
+    localStorage.removeItem('KIob3kZW_INfo')
     let users: any[] = [];
     this.firebaseStorageService.getUsers().subscribe( data =>{
       data.forEach((element:any) => {
@@ -37,7 +41,9 @@ export class HomeComponent implements OnInit {
     })
   }
 
+
   getProductos(){
+    localStorage.removeItem('products')
     this.firebaseStorageService.getProducts().subscribe(data =>{
       this.items = [];
       data.forEach((element:any) => {

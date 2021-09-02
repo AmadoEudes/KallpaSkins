@@ -1,8 +1,7 @@
 import { AuthService } from './../services/auth/auth-service.service';
 
-import { User } from './../models/users';
+
 import { Router, ActivatedRoute } from "@angular/router";
-import { UserServicesService } from '../services/user-services.service';
 
 //import { style } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
@@ -28,10 +27,14 @@ export class LoginComponent {
   ngOnInit(): void {
   }
 
+
+
   async onLogin(){
+    localStorage.removeItem('user')
     const {email, password} = this.loginForm.value;
     await this.authService.login(email, password)
     localStorage.setItem('user',  JSON.stringify(await this.authService.getCurrentUser()))
+    this.router.navigate(['/home'])
   }
 
   Toast = Swal.mixin({
@@ -63,8 +66,8 @@ export class LoginComponent {
   async googleSignin(){
     try {
       await this.authService.loginGoogle()
-      this.router.navigate(['/home'])
       localStorage.setItem('user',  JSON.stringify(await this.authService.getCurrentUser()))
+      this.router.navigate(['/home'])
     } catch (error) {
       console.log(error)
     }
