@@ -28,10 +28,6 @@ const routes: Routes = [
     component : OffersComponent
   },
   {
-    path : 'categories/:categoryValue',
-    component : OffersComponent
-  },
-  {
     path : 'login',
     component : LoginComponent,
   },

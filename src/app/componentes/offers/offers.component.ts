@@ -16,13 +16,11 @@ export class OffersComponent implements OnInit {
 
   categoryValue: string = "OFERTAR";
 
-  aux: string="";
+
 
   constructor(public firestore: AngularFirestore, public authService : AuthService, private firebaseStorageService: FirebaseStorageService, private cartService: CartService) {
     //this.items = firestore.collection("articulos").valueChanges();
-    if(this.categoryValue == "OFERTAR"){
-      this.aux = "Productos en oferta"
-    }
+
   }
 
   isUser: Boolean = false;
@@ -39,13 +37,6 @@ export class OffersComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.userExist();
-    this.cartService.recibirDatos_categories().subscribe(
-      (item: any) => {
-      this.aux = item;
-      },
-      
-    );
     this.getProducts();
   }
 

@@ -35,6 +35,18 @@ import { CartItemComponent } from './componentes/shopping-cart/cart-item/cart-it
 import { ProductItemDetailsComponent } from './componentes/home/product-item-details/product-item-details.component';
 import { ProductItemEditComponent } from './componentes/home/product-item-edit/product-item-edit.component';
 import { OffersComponent } from './componentes/offers/offers.component';
+import { FibraCarbonoComponent } from './componentes/categories/fibra-carbono/fibra-carbono.component';
+import { CueroComponent } from './componentes/categories/cuero/cuero.component';
+import { FrostedGlitterComponent } from './componentes/categories/frosted-glitter/frosted-glitter.component';
+import { CamuflajeComponent } from './componentes/categories/camuflaje/camuflaje.component';
+import { TexturaComponent } from './componentes/categories/textura/textura.component';
+import { MarmolComponent } from './componentes/categories/marmol/marmol.component';
+import { AstronautaComponent } from './componentes/categories/astronauta/astronauta.component';
+import { FrasesComponent } from './componentes/categories/frases/frases.component';
+import { CuteComponent } from './componentes/categories/cute/cute.component';
+import { LittlePetsComponent } from './componentes/categories/little-pets/little-pets.component';
+import { KittenComponent } from './componentes/categories/kitten/kitten.component';
+import { SweetHoldoverComponent } from './componentes/categories/sweet-holdover/sweet-holdover.component';
 
 
 @NgModule({
@@ -56,6 +68,18 @@ import { OffersComponent } from './componentes/offers/offers.component';
     ProductItemDetailsComponent,
     ProductItemEditComponent,
     OffersComponent,
+    FibraCarbonoComponent,
+    CueroComponent,
+    FrostedGlitterComponent,
+    CamuflajeComponent,
+    TexturaComponent,
+    MarmolComponent,
+    AstronautaComponent,
+    FrasesComponent,
+    CuteComponent,
+    LittlePetsComponent,
+    KittenComponent,
+    SweetHoldoverComponent,
   ],
   imports: [
     BrowserModule,
