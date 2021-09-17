@@ -1,3 +1,6 @@
+
+
+
 <div class="modal fade" id="productDetails" tabindex="-1" aria-labelledby="exampleModalScrollableTitle"
   aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
@@ -9,24 +12,34 @@
       <div class="modal-body">
         <div class="card mb-3">
           <div class="row no-gutters">
-            <div class="col-md-4">
-              <img [src]="product.imageURL" class="card-img" alt="...">
+            <div class="col-md-4 targettarea" >
+              <img  id="img"  [src]="product.imageURL" class="card-img" alt="...">
             </div>
             <div class="col-md-8">
               <div class="card-body">
                 <h5 class="card-title">{{product.nombre}}</h5>
                 
-                <p class="card-text">{{product.descripcion}}</p>
+                <p class="card-text">{{product.descripcion}} </p>
 
-                <p class="card-text">Cantidad disponible: {{product.cantidad}}</p>
-                <p class="card-text">Categoría a la que pertenece: {{product.categoria}}</p>
+                <!--<p class="card-text">Categoría a la que pertenece: {{product.categoria}}</p>
+                <p class="card-text">Producto en oferta? {{product.oferta}}</p>-->
                 
-                <p class="card-text">Producto en oferta? {{product.oferta}}</p>
                 <p class="card-text">Precio de oferta: {{product.offerPrice |currency: "S./"}}</p>
                 <p class="card-text"><small class="text-muted">Precio: {{product.precio |currency: "S./"}}</small></p>
+               <div >
+                 <lib-ngx-image-zoom style="max-width: 300px; border: solid 1px;"
+                  [thumbImage]= img
+                  [fullImage]= product.imageURL
+                  [enableLens]="true"
+                  [enableScrollZoom]="true"
+                  [magnification]="1"
+                  [lensWidth]="100"
+                  [lensHeight] = "100"
+                  style="max-width: 300px;"
+                ></lib-ngx-image-zoom>
+               </div>
+                
 
-                <h5 class="card-title">{{product.id}}</h5>
-                <h5 class="card-title">{{product.imageName}}</h5>
               </div>
             </div>
           </div>

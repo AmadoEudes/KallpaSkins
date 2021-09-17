@@ -7,8 +7,22 @@
     </div>
     <div class="offcanvas-body">
       <div class="row">
+        <div *ngIf="cartItems.length == 0" class="text-center">
+          <div>
+            <i class="fal fa-sad-tear fa-7x" style="color: #f50;"></i>
+          </div>
+            <h3>
+              No tienes ningun producto en tu carrito.
+            </h3>
+            <div>
+              <button class="btn " style="background: #f50; color: #fff;" (click)="goToHome()" data-bs-dismiss="offcanvas">
+                ¡Comprar ahora!
+              </button>
+            </div>
+          </div>
         <div class="col-md-12" *ngFor="let item of cartItems">
           <app-cart-item [cartItem]="item"></app-cart-item>
+          
         </div>
       </div>
     </div>
@@ -28,11 +42,16 @@
               <h5 id="total" class="card-title">{{cartTotal| currency:'PEN':'S/':'1.2-2'}}</h5>
             
           </div>
-          <div class="col-3 col-md-3">
+          <div class="col-3 col-md-3" *ngIf="cartItems.length > 0">
             
-              <button id="boton" type="button" class="btn btn-success" style="padding-right: 10px;" (click)="enviarLista()">Comprar</button>
+              <button id="boton" type="button" class="btn btn-success" style="padding-right: 10px; margin-left: -28px;" data-bs-dismiss="offcanvas" (click)="enviarLista()">COMPRAR</button>
             
           </div>
+          <div class="col-3 col-md-3" *ngIf="(cartItems.length == 0)!">
+            
+            <button id="boton" type="button" class="btn btn-danger" style="padding-right: 10px; margin-left: -10px;" data-bs-dismiss="offcanvas" (click)="goToHome()">CERRAR</button>
+          
+        </div>
         </div>
       </div>
     </div>

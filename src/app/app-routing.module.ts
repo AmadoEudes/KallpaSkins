@@ -11,6 +11,7 @@ import { ProductItemComponent } from './componentes/home/product-item/product-it
 import { ProductItemEditComponent } from './componentes/home/product-item-edit/product-item-edit.component';
 import { OffersComponent } from './componentes/offers/offers.component';
 import { AstronautaComponent } from './componentes/categories/astronauta/astronauta.component';
+import { VideosComponent } from './componentes/home/videos/videos.component';
 
 
 
@@ -51,6 +52,10 @@ const routes: Routes = [
   {
     path : 'editProduct/:id',
     component : ProductItemEditComponent
+  },
+  {
+    path : 'help/videos/SyC8JDeAyKIob',
+    component : VideosComponent
   },
   {
     path: '**',

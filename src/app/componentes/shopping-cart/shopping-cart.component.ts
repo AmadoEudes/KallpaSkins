@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/services/auth/auth-service.service';
 import { Observable } from 'rxjs';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/users';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -32,12 +33,22 @@ export class ShoppingCartComponent implements OnInit {
 
   }
 
+  usercollection = JSON.parse(localStorage.getItem('KIob3kZW_INfo')!);
+  user: any = {email: ""};
+  username: string = "";
+
+
   isUser: Boolean = false;
+
+  goToHome(){
+    this.router.navigate(['/home'])
+  }
 
   async userExist(){
     const user = await this.authService.getCurrentUser();
     if(user){
       this.isUser = true;
+      this.user = JSON.parse(localStorage.getItem('user')!)
       console.log(this.isUser);
     }else{
       this.isUser = false;
@@ -175,25 +186,67 @@ export class ShoppingCartComponent implements OnInit {
       }
     }
   }
-
+  userdates : boolean = false;
+  departamento = "";
+  provincia = "";
+  distrito = "";
   enviarLista(){
+    for(let i = 0; i < this.usercollection.length; i ++){
+      if(this.user.email == this.usercollection[i].email){
+        if(this.user.displayName == null || this.user.displayName == ""){
+          this.username = this.usercollection[i].nombres + " " +  this.usercollection[i].apellidos;
+          this.departamento = this.usercollection[i].departamento
+          this.provincia    = this.usercollection[i].provincia
+          this.distrito     = this.usercollection[i].distrito
+          this.userdates = false;
+          break;
+        }else{
+          this.username = this.user.displayName;
+          if(this.user.email == this.usercollection[i].email){
+            this.departamento = this.usercollection[i].departamento
+            this.provincia    = this.usercollection[i].provincia
+            this.distrito     = this.usercollection[i].distrito
+          }else{
+            this.departamento = "(Desconocido)"
+            this.provincia    = "(Desconocido XD)"
+            this.distrito     = "(Desconocido)"
+          }
+          
+          this.userdates = false;
+          break; 
+        }
+      }else{
+        this.userdates = true
+      }
+    }
+
+    if (this.userdates){
+      this.username = this.user.displayName;
+      this.departamento = "(Desconocido)"
+      this.provincia    = "(Desconocido)"
+      this.distrito     = "(Desconocido)"
+    }
+
     if(this.cartItems.length > 0){
       if(this.isUser == true){
-        let url="FranK? He aquí la lista de productos:\n";
-    console.log(this.cartItems)
-    for (let index = 0; index < this.cartItems.length; index++) {
-      console.log(this.cartItems[index])
-      url += "\n"+String(index+1)+". " + String(this.cartItems[index].nombre) +"\n"+"  Cantidad: "+ String(this.cartItems[index].cantidad) 
-      + "     Precio por unidad: S/."+String(this.cartItems[index].precio) +"\n"+"  Precio Total: "+String(this.cartItems[index].cantidad*this.cartItems[index].precio) + "\n"
-      
-    }
-    let cartTotal_fixed = this.cartTotal.toFixed(2)
-    url += "\n Costo total del pedido: S/." +  String(cartTotal_fixed)
-    url = encodeURIComponent(url);
-    this.mensaje += url;
-    window.open(this.mensaje, '_blank');
-    console.log(this.User$)
-    this.vaciarCarrito()
+        let url="Hola Kallpa Skins:\n" + "Soy: " + this.username + "\nDepartamento: " + this.departamento +
+        "\nPorvincia: " + this.provincia + "\nDistrito: " + this.distrito;
+        console.log(this.cartItems)
+        for (let index = 0; index < this.cartItems.length; index++) {
+          console.log(this.cartItems[index])
+          url += "\n"+String(index+1)+". " + String(this.cartItems[index].nombre) +"\n"+"  Cantidad: "+ String(this.cartItems[index].cantidad) 
+          + "     Precio unitario: S/."+String(this.cartItems[index].precio) +"\n"+ "Imagen: " + String(this.cartItems[index].imgUrl)+"\nImporte: "+String(this.cartItems[index].cantidad*this.cartItems[index].precio) + "\n"
+        }
+
+        let cartTotal_fixed = this.cartTotal.toFixed(2)
+        url += "\n Costo total del pedido: S/." +  String(cartTotal_fixed)
+        url = encodeURIComponent(url);
+        this.mensaje += url;
+        window.open(this.mensaje, '_blank');
+        console.log(this.User$)
+        this.vaciarCarrito()
+        this.username = ""
+    
       } else {
         console.log("Logueate sapazo")
         this.showUsserNotLoged();

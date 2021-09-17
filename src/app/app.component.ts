@@ -9,7 +9,4 @@ import { Container, Main } from 'tsparticles';
 })
 export class AppComponent {
   title = 'KallpaSkins';
-
-
-
 }

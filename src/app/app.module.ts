@@ -16,7 +16,7 @@ import { AppComponent } from './app.component';
 import { MainnavBarComponent } from './mainnav-bar/mainnav-bar.component';
 import { LoginComponent } from './login-checkin/login-checkin.component';
 import { ToastrModule } from 'ngx-toastr';
-
+import { NgxImageZoomModule } from "ngx-image-zoom"
 import { UserServicesService } from "../app/services/user-services.service";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AuthService } from "../app/services/auth/auth-service.service";
@@ -41,15 +41,10 @@ import { CueroComponent } from './componentes/categories/cuero/cuero.component';
 import { FrostedGlitterComponent } from './componentes/categories/frosted-glitter/frosted-glitter.component';
 import { CamuflajeComponent } from './componentes/categories/camuflaje/camuflaje.component';
 import { TexturaComponent } from './componentes/categories/textura/textura.component';
-import { MarmolComponent } from './componentes/categories/marmol/marmol.component';
 import { AstronautaComponent } from './componentes/categories/astronauta/astronauta.component';
-import { FrasesComponent } from './componentes/categories/frases/frases.component';
-import { CuteComponent } from './componentes/categories/cute/cute.component';
-import { LittlePetsComponent } from './componentes/categories/little-pets/little-pets.component';
-import { KittenComponent } from './componentes/categories/kitten/kitten.component';
-import { SweetHoldoverComponent } from './componentes/categories/sweet-holdover/sweet-holdover.component';
 import { ViewUserComponent } from './componentes/usuario/view-user/view-user.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { VideosComponent } from './componentes/home/videos/videos.component';
 
 
 
@@ -78,14 +73,9 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     FrostedGlitterComponent,
     CamuflajeComponent,
     TexturaComponent,
-    MarmolComponent,
     AstronautaComponent,
-    FrasesComponent,
-    CuteComponent,
-    LittlePetsComponent,
-    KittenComponent,
-    SweetHoldoverComponent,
-    ViewUserComponent
+    ViewUserComponent,
+    VideosComponent,
   ],
   imports: [
     BrowserModule,
@@ -100,7 +90,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     NgParticlesModule,
-    SweetAlert2Module.forRoot()
+    SweetAlert2Module.forRoot(),
+    NgxImageZoomModule
   ],
   providers: [UserServicesService, AuthService ],
   bootstrap: [AppComponent]

@@ -29,8 +29,7 @@ export class AdministradorComponent implements OnInit {
 
   // lista de categoria
   categorias : string[] = ['FIBRA CARBONO', 'CUERO', 'FROSTED GLITTER', 'CAMUFLAJE',
-  'TEXTURA', 'MÁRMOL', 'ASTRONAUTA', 'FRASES', 'CUTE',
-  'LITTLE PETS', 'KITTEN', 'SWEET HOLDOVER']
+  'TEXTURA', 'ASTRONAUTA']
 
   oferta : string[] = ['NO', 'OFERTAR']
 

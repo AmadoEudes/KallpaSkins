@@ -9,8 +9,9 @@ import { CartService } from '../../shopping-cart/cart.service';
   styleUrls: ['./product-item-details.component.css']
 })
 export class ProductItemDetailsComponent implements OnInit {
-  product= new Product("", "",0,"",0,"", "","","",0);
+  public product= new Product("", "",0,"",0,"", "","","",0);
   
+  public img : string = ""
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
@@ -18,7 +19,8 @@ export class ProductItemDetailsComponent implements OnInit {
       (item: any) => {
       
       this.cargarProducto(item);
-      console.log("Sí")
+      console.log(item.imageURL+"&imwidth=300")
+      this.img = item.imageURL+"&imwidth=300"
       },
       
     );
@@ -36,4 +38,5 @@ export class ProductItemDetailsComponent implements OnInit {
     this.product.descripcion = item.descripcion;
     this.product.offerPrice = item.offerPrice;
   }
+  
 }
